@@ -6,6 +6,6 @@ public interface IPausable
 {
     void Pause();
     void Unpause();
-    void Enable();
-    void Disable();
+    void OnEnable();
+    void OnDisable();
 }
