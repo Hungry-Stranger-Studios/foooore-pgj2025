@@ -1,10 +1,10 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <Style src="project://database/Assets/GameController%20Prototyping/UIStyle.uss?fileID=7433441132597879392&amp;guid=a606c20a202f0e4478ff13c4aafc4db7&amp;type=3#UIStyle" />
+    <Style src="project://database/Assets/GameController%20Prototyping/Pause%20Menu%20Assets/UIStyle.uss?fileID=7433441132597879392&amp;guid=a606c20a202f0e4478ff13c4aafc4db7&amp;type=3#UIStyle" />
     <ui:VisualElement name="GameView" style="flex-grow: 1; width: 100%; height: 100%;">
-        <ui:VisualElement style="flex-grow: 1; height: 50%; width: 50%; position: absolute; top: 25%; left: 25%;">
-            <ui:Button text="Continue" parse-escape-sequences="true" display-tooltip-when-elided="true" class="pauseButton" style="width: 75%; height: 25%; left: 25px;" />
-            <ui:Button text="Quit" parse-escape-sequences="true" display-tooltip-when-elided="true" enable-rich-text="true" class="pauseButton" style="width: 75%; height: 25%; left: 25px;" />
+        <ui:VisualElement name="ButtonHolder" style="flex-grow: 1; height: 50%; width: 50%; position: absolute; top: 25%; left: 25%;">
+            <ui:Button text="Continue" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ContinueButton" class="pauseButton" style="width: 75%; height: 25%; left: 25px;" />
+            <ui:Button text="Quit" parse-escape-sequences="true" display-tooltip-when-elided="true" enable-rich-text="true" name="QuitButton" class="pauseButton" style="width: 75%; height: 25%; left: 25px;" />
         </ui:VisualElement>
-        <ui:Label tabindex="-1" text="PAUSED" parse-escape-sequences="true" display-tooltip-when-elided="true" style="top: 0; position: relative; font-size: 32px; -unity-font: url(&quot;project://database/Assets/GameController%20Prototyping/zig_____.ttf?fileID=12800000&amp;guid=034d6a3d8be9cde47ac0f5acb7da4c37&amp;type=3#zig_____&quot;); -unity-font-definition: initial; -unity-text-align: upper-center;" />
+        <ui:Label tabindex="-1" text="PAUSED" parse-escape-sequences="true" display-tooltip-when-elided="true" style="top: 0; position: relative; font-size: 32px; -unity-font: url(&quot;project://database/Assets/GameController%20Prototyping/Pause%20Menu%20Assets/zig_____.ttf?fileID=12800000&amp;guid=034d6a3d8be9cde47ac0f5acb7da4c37&amp;type=3#zig_____&quot;); -unity-font-definition: initial; -unity-text-align: upper-center;" />
     </ui:VisualElement>
 </ui:UXML>

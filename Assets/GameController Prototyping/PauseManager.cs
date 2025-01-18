@@ -51,7 +51,7 @@ public class PauseManager : MonoBehaviour
         }
 
         //begin with the pause menu turned off
-        pauseMenu = transform.GetChild(0).gameObject;
+        pauseMenu = transform.GetComponentInChildren<PauseMenuManager>().gameObject; //PauseMenu is the only item with this component
         pauseMenu.SetActive(false);
     }
 
