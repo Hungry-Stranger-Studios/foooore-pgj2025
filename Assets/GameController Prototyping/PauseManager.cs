@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-[RequireComponent(typeof(UIDocument))]
 public class PauseManager : MonoBehaviour
 {
     //This class will be responsible for calling the methods related to pausing the game
@@ -15,11 +14,13 @@ public class PauseManager : MonoBehaviour
     public delegate void UnpauseGame();
     public event PauseGame onUnpauseGame;
 
-    private bool gamePaused;
-    
-    private void OnKeyDown(KeyCode keyCode)
+    private bool gamePaused = false;
+    private GameObject pauseMenu;
+
+
+    private void Update()
     {
-        if(keyCode != KeyCode.Escape)
+        if(!Input.GetKeyDown(KeyCode.Escape))
         {
             return;
         }
@@ -27,11 +28,20 @@ public class PauseManager : MonoBehaviour
         {
             onPauseGame.Invoke();
             gamePaused = true;
+            pauseMenu.SetActive(false);
         }
         else
         {
-            onUnpauseGame.Invoke();
+            //onUnpauseGame.Invoke();
             gamePaused = false;
+            pauseMenu.SetActive(true);
         }
+    }
+
+    private void Awake()
+    {
+        //begin with the pause menu turned off
+        pauseMenu = transform.GetChild(0).gameObject;
+        pauseMenu.SetActive(false);
     }
 }
