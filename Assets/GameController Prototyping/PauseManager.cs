@@ -7,16 +7,34 @@ public class PauseManager : MonoBehaviour
 {
     //This class will be responsible for calling the methods related to pausing the game
     public static PauseManager Instance { get; private set; } //this class should be a singleton
-    //Pausing the game
+    //Pausing game assets
     public delegate void PauseGame();
     public event PauseGame onPauseGame;
-    //Unpausing the game
+    //Unpausing game assets
     public delegate void UnpauseGame();
     public event PauseGame onUnpauseGame;
+    //In-Class Data members
+    private bool gamePaused = false; //tracking game state
+    private GameObject pauseMenu; //manipulating the pause menu
 
-    private bool gamePaused = false;
-    private GameObject pauseMenu;
 
+    private void Awake()
+    {
+        //Singleton enforcing
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+        }
+        
+
+        //begin with the pause menu turned off
+        pauseMenu = transform.GetComponentInChildren<PauseMenuManager>().gameObject; //PauseMenu is the only item with this component
+        pauseMenu.SetActive(false);
+    }
 
     private void Update()
     {
@@ -26,33 +44,33 @@ public class PauseManager : MonoBehaviour
         }
         if (!gamePaused)
         {
-            if (onPauseGame != null) { onPauseGame.Invoke(); }
-            gamePaused = true;
-            pauseMenu.SetActive(false);
+            Pause();
         }
         else
         {
-            if (onUnpauseGame != null) { onUnpauseGame.Invoke(); }
-            gamePaused = false;
-            pauseMenu.SetActive(true);
+            Unpause();
         }
     }
 
-    private void Awake()
+    private void Pause()
     {
-        //Singleton enforcing
-        if(Instance != null && Instance != this)
-        {
-            Destroy(this);
-        }
-        else
-        {
-            Instance = this;
-        }
-
-        //begin with the pause menu turned off
-        pauseMenu = transform.GetComponentInChildren<PauseMenuManager>().gameObject; //PauseMenu is the only item with this component
+        if (onPauseGame != null) { onPauseGame.Invoke(); }
+        gamePaused = true;
+        pauseMenu.SetActive(true);
+    }
+    private void Unpause()
+    {
+        if (onUnpauseGame != null) { onUnpauseGame.Invoke(); }
+        gamePaused = false;
         pauseMenu.SetActive(false);
     }
+    private void OnEnable()
+    {
+        PauseMenuManager.Instance.OnContinue += Unpause;
+    }
 
+    private void OnDisable()
+    {
+        PauseMenuManager.Instance.OnContinue -= Unpause;
+    }
 }
