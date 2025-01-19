@@ -43,13 +43,13 @@ public class PauseMenuManager : MonoBehaviour
             return;
         //alternate method of if(OnContinue!=null){OnContinue.Invoke();}
         OnContinue?.Invoke();
-        Debug.Log("Continue");
+        
     }
 
     private void OnQuitClicked(ClickEvent evt)
     {
         if (evt.propagationPhase != PropagationPhase.AtTarget)
             return;
-        Debug.Log("Quit");
+        
     }
 }
