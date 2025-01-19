@@ -22,7 +22,7 @@ public class PauseManager : MonoBehaviour
         //Singleton enforcing
         if (Instance != null && Instance != this)
         {
-            Destroy(this);
+            Destroy(gameObject);
         }
         else
         {
