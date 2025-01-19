@@ -50,5 +50,6 @@ public class PauseMenuManager : MonoBehaviour
     {
         if (evt.propagationPhase != PropagationPhase.AtTarget)
             return;
+        SceneController.LoadScene(0, 1, 1);
     }
 }

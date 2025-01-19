@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 public class SceneController : MonoBehaviour
 {
     //Should be a singleton
-    private static SceneController instance;
+    public static SceneController instance { get; private set; }
     public Image fadeEffect;
     // Start is called before the first frame update
     void Awake()
