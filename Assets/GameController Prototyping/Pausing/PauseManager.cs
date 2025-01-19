@@ -6,7 +6,7 @@ using UnityEngine.UIElements;
 public class PauseManager : MonoBehaviour
 {
     //This class will be responsible for calling the methods related to pausing the game
-    public static PauseManager Instance { get; private set; } //this class should be a singleton
+    
     //Pausing game assets
     public delegate void PauseGame();
     public event PauseGame onPauseGame;
@@ -16,8 +16,7 @@ public class PauseManager : MonoBehaviour
     //In-Class Data members
     private bool gamePaused = false; //tracking game state
     private GameObject pauseMenu; //manipulating the pause menu
-
-
+    public static PauseManager Instance { get; private set; } //this class should be a singleton
     private void Awake()
     {
         //Singleton enforcing
@@ -28,9 +27,19 @@ public class PauseManager : MonoBehaviour
         else
         {
             Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
-        
-
+    }
+    private void OnEnable()
+    {
+        PauseMenuManager.Instance.OnContinue += Unpause;
+    }
+    private void OnDisable()
+    {
+        PauseMenuManager.Instance.OnContinue -= Unpause;
+    }
+    private void Start()
+    {
         //begin with the pause menu turned off
         pauseMenu = transform.GetComponentInChildren<PauseMenuManager>().gameObject; //PauseMenu is the only item with this component
         pauseMenu.SetActive(false);
@@ -64,13 +73,5 @@ public class PauseManager : MonoBehaviour
         gamePaused = false;
         pauseMenu.SetActive(false);
     }
-    private void OnEnable()
-    {
-        PauseMenuManager.Instance.OnContinue += Unpause;
-    }
-
-    private void OnDisable()
-    {
-        PauseMenuManager.Instance.OnContinue -= Unpause;
-    }
+    
 }

@@ -14,7 +14,7 @@ public class PauseMenuManager : MonoBehaviour
     public delegate void PauseMenuDelegate();
     public event PauseMenuDelegate OnContinue;
 
-    private void OnEnable()
+    private void Awake()
     {
         //Singleton enforcing
         if (Instance != null && Instance != this)
@@ -25,6 +25,10 @@ public class PauseMenuManager : MonoBehaviour
         {
             Instance = this;
         }
+    }
+    
+    private void OnEnable()
+    {
         //Retrieve UI Elements
         _pauseMenu = GetComponent<UIDocument>();
         var root = _pauseMenu.rootVisualElement;
