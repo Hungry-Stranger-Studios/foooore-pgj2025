@@ -16,7 +16,7 @@ public class rd_anim_control : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!choosingAction)
+        if (!choosingAction && an.enabled == true)
             StartCoroutine(ChooseAnimation());
 
     }
@@ -39,5 +39,10 @@ public class rd_anim_control : MonoBehaviour
             an.SetInteger("idle_state", 2); // 1/10 chance to play idle act 2
         }
         choosingAction = false;
+    }
+
+    public void disableAnimator()
+    {
+        an.enabled = false;
     }
 }
