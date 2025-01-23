@@ -30,6 +30,8 @@ public class PlayerController : MonoBehaviour
     private float currentSwingForce = 0f;
     private bool isCharging = false;
     private bool isGrounded = true;
+    [Header("Air Movement Settings")]
+    [SerializeField] private float airSpeed = 10f;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -54,8 +56,30 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         HandleSwingInput();
+        AirMovement();
     
     }
+    private void AirMovement(){
+        if(!isGrounded){
+         // Adjust the angle for the desired tilt
+
+            if (Input.GetKey(KeyCode.A)) {
+                Debug.Log("A pressed");
+                // Tilt to the left
+                transform.position += UnityEngine.Vector3.left * airSpeed * Time.deltaTime;
+            if (Input.GetKey(KeyCode.D)) {
+                Debug.Log("D pressed");
+                // Tilt to the right
+                transform.position += UnityEngine.Vector3.right * airSpeed * Time.deltaTime;
+            }
+            else{
+                Debug.Log("Ball is grounded");
+            }
+
+        }
+    }
+    }
+
     
     private void HandleSwingInput(){
         if(isGrounded){
