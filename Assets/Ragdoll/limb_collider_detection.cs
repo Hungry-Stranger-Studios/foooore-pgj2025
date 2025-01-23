@@ -9,7 +9,7 @@ public class limb_collider_detection : MonoBehaviour
     void Start()
     {
         //Get ragdoll controller
-        rc = transform.root.gameObject.GetComponent<ragdoll_controller>();
+        rc = transform.root.gameObject.GetComponentInChildren<ragdoll_controller>();
     }
 
     private void OnCollisionEnter(Collision collision)

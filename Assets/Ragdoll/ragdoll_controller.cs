@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class ragdoll_controller : MonoBehaviour
 {
-    [SerializeField] float power;
-    
+    [SerializeField] float ragdollPushForce;
+    [SerializeField] float upwardsRicochetForce;
+
     bool ragdoll_hit = false;
 
     public void DetectCollision(Collision col, Rigidbody limb_rb)
@@ -16,15 +17,24 @@ public class ragdoll_controller : MonoBehaviour
 
 
             Rigidbody[] child_rigidbodies = GetComponentsInChildren<Rigidbody>();
+            Vector3 hitVel = col.rigidbody.velocity; // Find the velocity of the ball
+
             foreach (Rigidbody child in child_rigidbodies)
             {
                 child.useGravity = true;
-            }
+                limb_rb.AddForce(hitVel.normalized * ragdollPushForce, ForceMode.Impulse);   // Apply force in the direction of the velocity, multiplied by the power
 
-            Debug.Log(limb_rb); // What limb was hit
-            Vector3 hitVel = col.rigidbody.velocity; // Find the velocity of the ball
-            Debug.Log(hitVel.normalized * power);
-            limb_rb.AddForce(hitVel.normalized * power, ForceMode.Impulse);   // Apply force in the direction of the velocity, multiplied by the power
+                
+            }
+            float upwardsForceScaler = 0;
+            if (hitVel.y > -10)
+                upwardsForceScaler = upwardsRicochetForce / 2;
+            else
+                upwardsForceScaler = upwardsRicochetForce;
+            Debug.Log(upwardsForceScaler);
+            col.rigidbody.AddForce(Vector3.up * upwardsForceScaler, ForceMode.Impulse);
+
+            
         }
     }
 }

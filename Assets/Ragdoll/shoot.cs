@@ -7,8 +7,11 @@ public class shoot : MonoBehaviour
     // Start is called before the first frame update
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space)) 
-            gameObject.GetComponent<Rigidbody>().AddForce(transform.forward * 200, ForceMode.Impulse); 
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            gameObject.GetComponent<Rigidbody>().AddForce(transform.forward * 30, ForceMode.Impulse);
+            gameObject.GetComponent<Rigidbody>().useGravity = true;
+        }
     }
 
 
