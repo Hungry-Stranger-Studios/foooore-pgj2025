@@ -19,7 +19,7 @@ public class MouseControlledCamera : MonoBehaviour
 
     }
 }
-
+/*
 {/*
     using System.Collections;
     using System.Collections.Generic;
@@ -73,4 +73,4 @@ public class MouseControlledCamera : MonoBehaviour
     }
 
 
-*/}
+}*/
