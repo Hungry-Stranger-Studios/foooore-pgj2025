@@ -61,7 +61,7 @@ public class PlayerController : MonoBehaviour
     
     }
     private void AirMovement(){
-        if(!canHit){
+        if(!canHit || canHit){
          // Adjust the angle for the desired tilt
 
             if (Input.GetKey(KeyCode.A)) {
@@ -83,7 +83,7 @@ public class PlayerController : MonoBehaviour
 
     
     private void HandleSwingInput(){
-        if(canHit){
+        if(canHit || !canHit){
             if(Input.GetKeyDown(KeyCode.Space)){
                 isCharging=true;
                 currentSwingForce=0f;
