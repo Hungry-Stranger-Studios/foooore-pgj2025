@@ -84,7 +84,7 @@ public class PlayerController : MonoBehaviour
 
     
     private void HandleSwingInput(){
-        if(canHit){
+        if(canHit || !canHit){  //delete or condition for non-testing perspective - can only shoot after hitting a person
             if(Input.GetKeyDown(KeyCode.Space)){
                 isCharging=true;
                 currentSwingForce=0f;
