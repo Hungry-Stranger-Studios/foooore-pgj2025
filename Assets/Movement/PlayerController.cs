@@ -29,11 +29,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Camera playerCamera;
     private float currentSwingForce = 0f;
     private bool isCharging = false;
-    private bool isGrounded = true;
+    public bool canHit = true;
     [Header("Air Movement Settings")]
     [SerializeField] private float airSpeed = 10f;
     void Start()
     {
+        
         rb = GetComponent<Rigidbody>();
          ballRenderer = GetComponent<Renderer>(); 
         if (ballRenderer != null){
@@ -60,7 +61,7 @@ public class PlayerController : MonoBehaviour
     
     }
     private void AirMovement(){
-        if(!isGrounded){
+        if(!canHit){
          // Adjust the angle for the desired tilt
 
             if (Input.GetKey(KeyCode.A)) {
@@ -82,7 +83,7 @@ public class PlayerController : MonoBehaviour
 
     
     private void HandleSwingInput(){
-        if(isGrounded){
+        if(canHit){
             if(Input.GetKeyDown(KeyCode.Space)){
                 isCharging=true;
                 currentSwingForce=0f;
@@ -149,20 +150,6 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(combinedForce, ForceMode.Impulse);
         }
         ballRenderer.material.color = startColor;
-    }
-    private void OnCollisionEnter(Collision collision){
-    // Check if the ball collides with the ground layer
-    if (collision.gameObject.CompareTag("Ground"))
-    {
-        isGrounded = true;
-    }
-}
-
-    private void OnCollisionExit(Collision collision){
-        // Check if the ball leaves the ground layer
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            isGrounded = false;
-        }
+        canHit = false;
     }
 }
