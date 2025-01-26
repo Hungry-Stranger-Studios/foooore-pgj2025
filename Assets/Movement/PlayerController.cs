@@ -107,6 +107,7 @@ public class PlayerController : MonoBehaviour
         // Initial position and velocity
         UnityEngine.Vector3 startPosition = transform.position;
         UnityEngine.Vector3 startVelocity = playerCamera.transform.forward * currentSwingForce / rb.mass;
+        startVelocity += UnityEngine.Vector3.up * (currentSwingForce * 0.5f); // Adjust 0.5f for more or less arc height
 
         // Simulate the trajectory points
         UnityEngine.Vector3 currentPosition = startPosition;
@@ -141,7 +142,11 @@ public class PlayerController : MonoBehaviour
     private void SwingBall(){
         if (playerCamera != null)
         {
-            rb.AddForce(playerCamera.transform.forward * currentSwingForce, ForceMode.Impulse);
+            UnityEngine.Vector3 forwardForce = playerCamera.transform.forward * (currentSwingForce / rb.mass);
+            UnityEngine.Vector3 upwardForce = UnityEngine.Vector3.up * (currentSwingForce * 0.5f / rb.mass);
+            UnityEngine.Vector3 combinedForce = forwardForce + upwardForce;
+
+            rb.AddForce(combinedForce, ForceMode.Impulse);
         }
         ballRenderer.material.color = startColor;
     }
