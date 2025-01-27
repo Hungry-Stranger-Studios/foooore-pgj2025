@@ -4,18 +4,27 @@ using UnityEngine;
 
 public class MouseControlledCamera : MonoBehaviour
 {
-    public Transform ball; // Reference to the golf ball
-    public float distance = 10f; // Distance from the ball
-    public float pivotHeight = 2f; // Pivot point height above the ball
-    public float heightOffset = 1.5f; // Minimum height above the floor
-    public float sensitivity = 0.5f; // Sensitivity for mouse movement
-    public Vector2 turn; // Keeps track of mouse input for rotation
-    public float maxTilt = 120f; // Maximum upward tilt
-    public float minTilt = -80f; // Maximum downward tilt
+    private Transform ball;                            // Reference to the golf ball
+    [Header("Camera Functionality Values")]
+    [SerializeField] private float distance = 10f;     // Distance from the ball
+    [SerializeField] private float pivotHeight = 2f;   // Pivot point height above the ball
+    [SerializeField] private float heightOffset = 1.5f;// Minimum height above the floor
+    [SerializeField] private float sensitivity = 0.5f; // Sensitivity for mouse movement
+    [SerializeField] private Vector2 turn;             // Keeps track of mouse input for rotation
+    [SerializeField] private float maxTilt = 120f;     // Maximum upward tilt
+    [SerializeField] private float minTilt = -80f;     // Maximum downward tilt
+
+    [Header("Camera Offset From Ball")]
+    [SerializeField][Range(0, 1)] private float distanceToBall = 1f;
+    [SerializeField][Range(-2, 2)] private float xOffset = 0f;
+    [SerializeField][Range(-2, 2)] private float yOffset = 0f;
 
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        ball = GameObject.Find("Golfball").transform;
+
+
     }
 
     void LateUpdate()
@@ -49,5 +58,11 @@ public class MouseControlledCamera : MonoBehaviour
 
         // makes camera look at the pivot point
         transform.LookAt(pivotPoint);
+
+        //Move the camera to the position of the ball offset by the values provided
+        //transform.position = ball.position;
+        //transform.Translate(transform.forward * (-1 * distanceToBall));  //Move it back 
+        //transform.Translate(transform.right * xOffset); //Move it left or right
+        //transform.Translate(transform.up * yOffset);    //Move it up or down
     }
 }
