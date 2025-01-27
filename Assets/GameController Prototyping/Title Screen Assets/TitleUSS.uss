@@ -1,2 +1,23 @@
 VisualElement {
 }
+
+.titleButton {
+    background-color: rgb(193, 202, 214);
+    align-self: center;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+.titleText {
+    -unity-font: url("project://database/Assets/Fonts/lumierepolis-font/Lumierepolis-Yqvn8.ttf?fileID=12800000&guid=e65da2d9dd7f6e745b668a7b9a836954&type=3#Lumierepolis-Yqvn8");
+    -unity-font-definition: initial;
+    font-size: 50px;
+    color: rgb(255, 255, 255);
+    text-shadow: 1.6px 0 0 rgb(22, 96, 136);
+}
+
+.titleButton:hover {
+    background-color: rgb(96, 143, 207);
+}
