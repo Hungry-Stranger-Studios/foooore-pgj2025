@@ -29,11 +29,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Camera playerCamera;
     private float currentSwingForce = 0f;
     private bool isCharging = false;
-    private bool isGrounded = true;
+    private bool isGrounded = false;
+    public bool canHit = true;
     [Header("Air Movement Settings")]
     [SerializeField] private float airSpeed = 10f;
     void Start()
     {
+        
         rb = GetComponent<Rigidbody>();
          ballRenderer = GetComponent<Renderer>(); 
         if (ballRenderer != null){
@@ -67,6 +69,7 @@ public class PlayerController : MonoBehaviour
                 Debug.Log("A pressed");
                 // Tilt to the left
                 transform.position += UnityEngine.Vector3.left * airSpeed * Time.deltaTime;
+            }
             if (Input.GetKey(KeyCode.D)) {
                 Debug.Log("D pressed");
                 // Tilt to the right
@@ -78,11 +81,10 @@ public class PlayerController : MonoBehaviour
 
         }
     }
-    }
 
     
     private void HandleSwingInput(){
-        if(isGrounded){
+        if(canHit || !canHit){  //delete or condition for non-testing perspective - can only shoot after hitting a person
             if(Input.GetKeyDown(KeyCode.Space)){
                 isCharging=true;
                 currentSwingForce=0f;
@@ -107,6 +109,7 @@ public class PlayerController : MonoBehaviour
         // Initial position and velocity
         UnityEngine.Vector3 startPosition = transform.position;
         UnityEngine.Vector3 startVelocity = playerCamera.transform.forward * currentSwingForce / rb.mass;
+        startVelocity += UnityEngine.Vector3.up * (currentSwingForce * 0.5f); // Adjust 0.5f for more or less arc height
 
         // Simulate the trajectory points
         UnityEngine.Vector3 currentPosition = startPosition;
@@ -141,9 +144,14 @@ public class PlayerController : MonoBehaviour
     private void SwingBall(){
         if (playerCamera != null)
         {
-            rb.AddForce(playerCamera.transform.forward * currentSwingForce, ForceMode.Impulse);
+            UnityEngine.Vector3 forwardForce = playerCamera.transform.forward * (currentSwingForce / rb.mass);
+            UnityEngine.Vector3 upwardForce = UnityEngine.Vector3.up * (currentSwingForce * 0.5f / rb.mass);
+            UnityEngine.Vector3 combinedForce = forwardForce + upwardForce;
+
+            rb.AddForce(combinedForce, ForceMode.Impulse);
         }
         ballRenderer.material.color = startColor;
+        canHit = false;
     }
     private void OnCollisionEnter(Collision collision){
     // Check if the ball collides with the ground layer
