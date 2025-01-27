@@ -11,8 +11,6 @@ public class SceneController : MonoBehaviour
     public static SceneController instance { get; private set; }
     public Image fadeEffect;
 
-    [SerializeField] int sceneID;
-
     void Awake()
     {
         //singleton enforcing
