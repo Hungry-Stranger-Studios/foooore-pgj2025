@@ -2,14 +2,7 @@ VisualElement {
 }
 
 .pauseButton {
-    font-size: 80%;
-    -unity-font: url("project://database/Assets/GameController%20Prototyping/zig_____.ttf?fileID=12800000&guid=034d6a3d8be9cde47ac0f5acb7da4c37&type=3#zig_____");
-    -unity-font-definition: initial;
-    background-color: rgb(94, 93, 92);
-    -unity-text-align: upper-center;
-    -unity-font-style: normal;
-    -unity-text-outline-width: 0;
-    text-shadow: 5px 0 0 rgba(0, 0, 0, 0);
+    background-color: rgb(102, 199, 244);
     padding-top: 5px;
     padding-right: 5px;
     padding-bottom: 5px;
@@ -18,12 +11,24 @@ VisualElement {
     margin-right: 5px;
     margin-bottom: 5px;
     margin-left: 5px;
-    min-width: 25%;
-    min-height: 25%;
-    max-width: 75%;
-    max-height: 75%;
+    border-top-left-radius: 35px;
+    border-top-right-radius: 35px;
+    border-bottom-right-radius: 35px;
+    border-bottom-left-radius: 35px;
+    border-left-color: rgb(22, 96, 136);
+    border-right-color: rgb(22, 96, 136);
+    border-top-color: rgb(22, 96, 136);
+    border-bottom-color: rgb(22, 96, 136);
+    align-self: center;
 }
 
 .pauseButton:hover {
     color: rgb(255, 255, 255);
+}
+
+.pauseText {
+    -unity-font: url("project://database/Assets/GameController%20Prototyping/Pausing/Pause%20Menu%20Assets/zig_____.ttf?fileID=12800000&guid=034d6a3d8be9cde47ac0f5acb7da4c37&type=3#zig_____");
+    -unity-font-definition: initial;
+    color: rgb(255, 255, 255);
+    -unity-text-outline-color: rgb(22, 96, 136);
 }
