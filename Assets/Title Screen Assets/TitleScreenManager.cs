@@ -8,7 +8,9 @@ public class TitleScreenManager : MonoBehaviour
 {
     private UIDocument _titleScreen;
     //For unpausing from the continue button
-
+    [SerializeField] private int nextSceneID = 1;
+    [SerializeField] private float transitionDuration = 1;
+    [SerializeField] private float transitionWaitTime = 1;
 
     private void OnEnable()
     {
@@ -23,7 +25,7 @@ public class TitleScreenManager : MonoBehaviour
     {
         if (evt.propagationPhase != PropagationPhase.AtTarget)
             return;
-        SceneController.LoadScene(1, 1, 1);
+        SceneController.LoadScene(nextSceneID, transitionDuration, transitionWaitTime);
     }
 
 }

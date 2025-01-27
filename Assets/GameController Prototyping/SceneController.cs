@@ -10,7 +10,9 @@ public class SceneController : MonoBehaviour
     //Should be a singleton
     public static SceneController instance { get; private set; }
     public Image fadeEffect;
-    // Start is called before the first frame update
+
+    [SerializeField] int sceneID;
+
     void Awake()
     {
         //singleton enforcing
