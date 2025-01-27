@@ -12,7 +12,6 @@ public class PlayerController : MonoBehaviour
    private LineRenderer lineRenderer;
 
    [Header("Swing Settings")]
-   [SerializeField] private float speed = 5f;
    [SerializeField] private float maxSwingForce = 100f;
    [SerializeField] private float chargeRate = 10f;
     
