@@ -20,6 +20,8 @@ VisualElement {
     border-top-color: rgb(22, 96, 136);
     border-bottom-color: rgb(22, 96, 136);
     align-self: center;
+    width: 50%;
+    height: 25%;
 }
 
 .pauseButton:hover {
