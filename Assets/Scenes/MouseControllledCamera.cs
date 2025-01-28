@@ -37,7 +37,7 @@ public class MouseControlledCamera : MonoBehaviour
         Quaternion rotation = Quaternion.Euler(turn.y, turn.x, 0);
 
         // Shift pivot point above the ball to allow looking "under" it
-        Vector3 pivotPoint = ball.position + Vector3.up * pivotHeight;
+        Vector3 pivotPoint = ball.position + Vector3.up * pivotHeight + (transform.right / 3);
 
         // offset for the camera based on rotation
         Vector3 offset = rotation * new Vector3(0, 0, -distance);

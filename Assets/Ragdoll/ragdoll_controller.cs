@@ -23,18 +23,20 @@ public class ragdoll_controller : MonoBehaviour
             {
                 child.useGravity = true;
                 limb_rb.AddForce(hitVel.normalized * ragdollPushForce, ForceMode.Impulse);   // Apply force in the direction of the velocity, multiplied by the power
-
-                
             }
-            float upwardsForceScaler = 0;
-            if (hitVel.y > -10)
-                upwardsForceScaler = upwardsRicochetForce / 2;
-            else
-                upwardsForceScaler = upwardsRicochetForce;
-            Debug.Log(upwardsForceScaler);
-            col.rigidbody.velocity = new Vector3(hitVel.x, upwardsRicochetForce, hitVel.z);
-
             
+            col.rigidbody.velocity = new Vector3(hitVel.x, hitVel.y + upwardsRicochetForce, hitVel.z);  //Apply an upwards velocity to the ball
+
+            SphereCollider ballSpCol = col.gameObject.GetComponent<SphereCollider>();   //Get balls collider
+            ballSpCol.isTrigger = true; //Turn off its collider
+            StartCoroutine(solidifyCollider(ballSpCol));  //Turn it back on after a small delay
         }
+    }
+
+    IEnumerator solidifyCollider(SphereCollider ball)
+    {
+        yield return new WaitForSeconds(0.35f);  
+        ball.isTrigger = false;
+        Debug.Log("Solidified Collider");
     }
 }
