@@ -58,33 +58,37 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         HandleSwingInput();
-        AirMovement();
-    
     }
+
+    private void FixedUpdate()
+    {
+        AirMovement();
+    }
+
     private void AirMovement(){
         if(!isGrounded){
          // Adjust the angle for the desired tilt
 
             if (Input.GetKey(KeyCode.A)) {
-                Debug.Log("A pressed");
-                // Tilt to the left
-                transform.position += UnityEngine.Vector3.left * airSpeed * Time.deltaTime;
+                transform.position += playerCamera.transform.right * -1 * airSpeed * Time.deltaTime;
             }
             if (Input.GetKey(KeyCode.D)) {
-                Debug.Log("D pressed");
-                // Tilt to the right
-                transform.position += UnityEngine.Vector3.right * airSpeed * Time.deltaTime;
+                transform.position += playerCamera.transform.right * airSpeed * Time.deltaTime;
             }
-            else{
-                Debug.Log("Ball is grounded");
+            if (Input.GetKey(KeyCode.W))
+            {
+                transform.position += playerCamera.transform.forward * airSpeed * Time.deltaTime;
             }
-
+            if (Input.GetKey(KeyCode.S))
+            {
+                transform.position += playerCamera.transform.forward * -1 * airSpeed * Time.deltaTime;
+            }
         }
     }
 
     
     private void HandleSwingInput(){
-        if(canHit || !canHit){  //delete or condition for non-testing perspective - can only shoot after hitting a person
+        if(canHit){  
             if(Input.GetKeyDown(KeyCode.Space)){
                 isCharging=true;
                 currentSwingForce=0f;
@@ -124,21 +128,21 @@ public class PlayerController : MonoBehaviour
             currentVelocity += Physics.gravity * gravityMultiplier * timeStep;
         }
     }
-        private void UpdateBallColor(){
+    private void UpdateBallColor(){
          float t = currentSwingForce / maxSwingForce;
 
-            // goes white to green (0–75% power)
-            if (t <= 0.75f)
-            {
-                float subT = t / 0.75f; // Normalize t for the 0–0.75 range
-                ballRenderer.material.color = Color.Lerp(startColor, midColor, subT);
-            }
-            // green to red (75–100% power)
-            else
-            {
-                float subT = (t - 0.75f) / 0.25f; // Normalize t for the 0.75–1 range
-                ballRenderer.material.color = Color.Lerp(midColor, maxForceColor, subT);
-            }
+        // goes white to green (0–75% power)
+        if (t <= 0.75f)
+        {
+            float subT = t / 0.75f; // Normalize t for the 0–0.75 range
+            ballRenderer.material.color = Color.Lerp(startColor, midColor, subT);
+        }
+        // green to red (75–100% power)
+        else
+        {
+            float subT = (t - 0.75f) / 0.25f; // Normalize t for the 0.75–1 range
+            ballRenderer.material.color = Color.Lerp(midColor, maxForceColor, subT);
+        }
     }
 
     private void SwingBall(){
@@ -148,18 +152,24 @@ public class PlayerController : MonoBehaviour
             UnityEngine.Vector3 upwardForce = UnityEngine.Vector3.up * (currentSwingForce * 0.5f / rb.mass);
             UnityEngine.Vector3 combinedForce = forwardForce + upwardForce;
 
+            rb.velocity = UnityEngine.Vector3.zero;
             rb.AddForce(combinedForce, ForceMode.Impulse);
         }
         ballRenderer.material.color = startColor;
         canHit = false;
     }
-    private void OnCollisionEnter(Collision collision){
-    // Check if the ball collides with the ground layer
-    if (collision.gameObject.CompareTag("Ground"))
-    {
-        isGrounded = true;
+    private void OnCollisionEnter(Collision collision) {
+        // Check if the ball collides with the ground layer
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            isGrounded = true;
+        }
+        if (collision.gameObject.CompareTag("Ragdoll"))
+        {
+            canHit = true;
+            Debug.Log("hit ragdoll");
+        }
     }
-}
 
     private void OnCollisionExit(Collision collision){
         // Check if the ball leaves the ground layer

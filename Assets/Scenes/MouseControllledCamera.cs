@@ -14,17 +14,10 @@ public class MouseControlledCamera : MonoBehaviour
     [SerializeField] private float maxTilt = 120f;     // Maximum upward tilt
     [SerializeField] private float minTilt = -80f;     // Maximum downward tilt
 
-    [Header("Camera Offset From Ball")]
-    [SerializeField][Range(0, 1)] private float distanceToBall = 1f;
-    [SerializeField][Range(-2, 2)] private float xOffset = 0f;
-    [SerializeField][Range(-2, 2)] private float yOffset = 0f;
-
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
         ball = GameObject.Find("Golfball").transform;
-
-
     }
 
     void LateUpdate()
@@ -58,11 +51,5 @@ public class MouseControlledCamera : MonoBehaviour
 
         // makes camera look at the pivot point
         transform.LookAt(pivotPoint);
-
-        //Move the camera to the position of the ball offset by the values provided
-        //transform.position = ball.position;
-        //transform.Translate(transform.forward * (-1 * distanceToBall));  //Move it back 
-        //transform.Translate(transform.right * xOffset); //Move it left or right
-        //transform.Translate(transform.up * yOffset);    //Move it up or down
     }
 }

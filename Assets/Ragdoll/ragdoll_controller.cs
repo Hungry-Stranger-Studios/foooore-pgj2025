@@ -32,7 +32,7 @@ public class ragdoll_controller : MonoBehaviour
             else
                 upwardsForceScaler = upwardsRicochetForce;
             Debug.Log(upwardsForceScaler);
-            col.rigidbody.AddForce(Vector3.up * upwardsForceScaler, ForceMode.Impulse);
+            col.rigidbody.velocity = new Vector3(hitVel.x, upwardsRicochetForce, hitVel.z);
 
             
         }
