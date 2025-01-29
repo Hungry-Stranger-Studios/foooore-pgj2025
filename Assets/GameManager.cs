@@ -6,6 +6,11 @@ public class GameManager : MonoBehaviour
 {
     //This is the only class that should actually be a singleton
     public static GameManager Instance { get; private set; } //this class should be a singleton
+
+    private PauseManager pauseManager;
+    private SceneController sceneController;
+
+
     private void Awake()
     {
         //Singleton enforcing
@@ -19,5 +24,13 @@ public class GameManager : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);   
         }
+    }
+    public PauseManager GetPauseManager()
+    {
+        return pauseManager;
+    }
+    public SceneController GetSceneController()
+    {
+        return sceneController;
     }
 }

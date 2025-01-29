@@ -67,14 +67,14 @@ public class PlayerController : MonoBehaviour
 
     void OnEnable()
     {
-        PauseManager.Instance.onPauseGame += pausePlayer;
-        PauseManager.Instance.onUnpauseGame += unpausePlayer;
+        GameManager.Instance.GetPauseManager().onPauseGame += pausePlayer;
+        GameManager.Instance.GetPauseManager().onUnpauseGame += unpausePlayer;
     }
 
     void OnDisable()
     {
-        PauseManager.Instance.onPauseGame -= pausePlayer;
-        PauseManager.Instance.onUnpauseGame -= unpausePlayer;
+        GameManager.Instance.GetPauseManager().onPauseGame  -= pausePlayer;
+        GameManager.Instance.GetPauseManager().onUnpauseGame -= unpausePlayer;
     }
 
     // Update is called once per frame

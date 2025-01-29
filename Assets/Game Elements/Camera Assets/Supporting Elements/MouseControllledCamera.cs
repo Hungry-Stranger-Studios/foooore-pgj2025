@@ -24,14 +24,14 @@ public class MouseControlledCamera : MonoBehaviour
     }
     void OnEnable()
     {
-        PauseManager.Instance.onPauseGame += pauseCamera;
-        PauseManager.Instance.onUnpauseGame += unpauseCamera;
+        GameManager.Instance.GetPauseManager().onPauseGame += pauseCamera;
+        GameManager.Instance.GetPauseManager().onUnpauseGame += unpauseCamera;
     }
 
     void OnDisable()
     {
-        PauseManager.Instance.onPauseGame -= pauseCamera;
-        PauseManager.Instance.onUnpauseGame -= unpauseCamera;
+        GameManager.Instance.GetPauseManager().onPauseGame   -= pauseCamera;
+        GameManager.Instance.GetPauseManager().onUnpauseGame -= unpauseCamera;
     }
 
     void LateUpdate()
