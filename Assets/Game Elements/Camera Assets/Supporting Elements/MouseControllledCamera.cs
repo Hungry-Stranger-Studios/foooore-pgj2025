@@ -15,14 +15,30 @@ public class MouseControlledCamera : MonoBehaviour
     private Transform ball;     // Reference to the golf ball
     private Vector2 turn;       // Keeps track of mouse input for rotation
 
+    private bool cameraEnabled = true;
+
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
         ball = GameObject.Find("Golfball").transform;
     }
+    void OnEnable()
+    {
+        PauseManager.Instance.onPauseGame += pauseCamera;
+        PauseManager.Instance.onUnpauseGame += unpauseCamera;
+    }
+
+    void OnDisable()
+    {
+        PauseManager.Instance.onPauseGame -= pauseCamera;
+        PauseManager.Instance.onUnpauseGame -= unpauseCamera;
+    }
 
     void LateUpdate()
     {
+        // if the camera cannot be moved dont even try
+        if (!cameraEnabled)
+            return;
         if (ball == null)
         {
             Debug.LogWarning("Ball reference is missing!");
@@ -52,5 +68,15 @@ public class MouseControlledCamera : MonoBehaviour
 
         // makes camera look at the pivot point
         transform.LookAt(pivotPoint);
+    }
+
+    private void pauseCamera()
+    {
+        cameraEnabled = false;
+    }
+
+    private void unpauseCamera()
+    {
+        cameraEnabled = true;
     }
 }

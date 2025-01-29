@@ -36,6 +36,7 @@ public class PlayerController : MonoBehaviour
     private bool isCharging = false;
     private bool isGrounded = false;
     public bool canHit = true;
+    private bool movementDisabled = false;
 
 
     void Start()
@@ -64,14 +65,28 @@ public class PlayerController : MonoBehaviour
         lineRenderer.enabled = false; // Hide initially
     }
 
+    void OnEnable()
+    {
+        PauseManager.Instance.onPauseGame += pausePlayer;
+        PauseManager.Instance.onUnpauseGame += unpausePlayer;
+    }
+
+    void OnDisable()
+    {
+        PauseManager.Instance.onPauseGame -= pausePlayer;
+        PauseManager.Instance.onUnpauseGame -= unpausePlayer;
+    }
+
     // Update is called once per frame
     void Update()
     {
-        HandleSwingInput();
+        if(!movementDisabled)
+            HandleSwingInput();
     }
 
     private void FixedUpdate()
     {
+        if(!movementDisabled)
         AirMovement();
     }
 
@@ -186,5 +201,17 @@ public class PlayerController : MonoBehaviour
         {
             isGrounded = false;
         }
+    }
+
+    private void pausePlayer()
+    {
+        Time.timeScale = 0.0f;
+        movementDisabled = true;
+    }
+
+    private void unpausePlayer()
+    {
+        Time.timeScale = 1.0f;
+        movementDisabled = true;
     }
 }
