@@ -87,7 +87,7 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         if(!movementDisabled)
-        AirMovement();
+            AirMovement();
     }
 
     //Air movement controls. WASD to add forces in the respective direction relative to the cameras forward facing direction

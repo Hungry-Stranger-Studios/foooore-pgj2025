@@ -27,8 +27,6 @@ public class PauseManager : MonoBehaviour
         else
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
-            //begin with the pause menu turned off
             pauseMenu = GameObject.Find("PauseMenu").GetComponent<PauseMenu>(); //PauseMenu is the only item with this component
         }
     }
@@ -36,10 +34,11 @@ public class PauseManager : MonoBehaviour
     {
         pauseMenu.OnContinue += Unpause;
     }
-    private void OnDisable()
+    /* Apparently this isn't needed. It just causes a bug
+     * private void OnDisable()
     {
         pauseMenu.OnContinue -= Unpause;
-    }
+    }*/
     private void Start()
     {
         
