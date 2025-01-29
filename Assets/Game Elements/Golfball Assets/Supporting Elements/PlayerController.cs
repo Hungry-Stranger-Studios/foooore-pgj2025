@@ -203,6 +203,11 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void playerWin()
+    {
+
+    }
+
     private void pausePlayer()
     {
         movementDisabled = true;

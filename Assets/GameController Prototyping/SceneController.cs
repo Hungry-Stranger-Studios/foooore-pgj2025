@@ -14,9 +14,9 @@ public class SceneController : MonoBehaviour
     void Awake()
     {
         //singleton enforcing
-        if (instance == null) 
+        if (instance == null)
         {
-            instance = this; 
+            instance = this;
             DontDestroyOnLoad(gameObject);
 
             fadeEffect.gameObject.SetActive(true);
@@ -24,15 +24,20 @@ public class SceneController : MonoBehaviour
             fadeEffect.rectTransform.sizeDelta = new Vector2(Screen.width + 20, Screen.height + 20);
             fadeEffect.gameObject.SetActive(false);
         }
-        else 
-        { 
-            Destroy(gameObject); 
+        else
+        {
+            Destroy(gameObject);
         }
     }
 
     public static void LoadScene(int index, float duration = 1, float waitTime = 0)
     {
         instance.StartCoroutine(instance.FadeScene(index, duration, waitTime));
+    }
+
+    public static void ReloadScene(float duration = 0, float waitTime = 0)
+    {
+        LoadScene(SceneManager.GetActiveScene().buildIndex, duration, waitTime);
     }
 
     private IEnumerator FadeScene(int sceneIndex, float duration, float waitTime)

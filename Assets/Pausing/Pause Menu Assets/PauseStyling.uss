@@ -26,10 +26,11 @@ VisualElement {
 
 .pauseButton:hover {
     color: rgb(255, 255, 255);
+    background-color: rgb(69, 126, 152);
 }
 
 .pauseText {
-    -unity-font: url("project://database/Assets/GameController%20Prototyping/Pausing/Pause%20Menu%20Assets/zig_____.ttf?fileID=12800000&guid=034d6a3d8be9cde47ac0f5acb7da4c37&type=3#zig_____");
+    -unity-font: url("project://database/Assets/Pausing/Pause%20Menu%20Assets/zig_____.ttf?fileID=12800000&guid=034d6a3d8be9cde47ac0f5acb7da4c37&type=3#zig_____");
     -unity-font-definition: initial;
     color: rgb(255, 255, 255);
     -unity-text-outline-color: rgb(22, 96, 136);
