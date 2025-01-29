@@ -11,11 +11,14 @@ public class HoleInOne : MonoBehaviour
     {
         holeLight = GetComponent<Renderer>();
     }
-    void OnTriggerEnter(Collider collider){
-    if(collider.CompareTag("Player")){
-        Debug.Log("Hole in one!");
-        holeLight.material.color = winColor;
+
+    private void OnEnable()
+    {
+        onWin += changeHoleColor;
+    }
+    private void OnDisable()
+    {
 
     }
-   }
+    
 }
