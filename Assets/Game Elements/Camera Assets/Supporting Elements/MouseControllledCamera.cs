@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class MouseControlledCamera : MonoBehaviour
 {
-    private Transform ball;                            // Reference to the golf ball
     [Header("Camera Functionality Values")]
     [SerializeField] private float distance = 10f;     // Distance from the ball
     [SerializeField] private float pivotHeight = 2f;   // Pivot point height above the ball
     [SerializeField] private float heightOffset = 1.5f;// Minimum height above the floor
     [SerializeField] private float sensitivity = 0.5f; // Sensitivity for mouse movement
-    [SerializeField] private Vector2 turn;             // Keeps track of mouse input for rotation
     [SerializeField] private float maxTilt = 120f;     // Maximum upward tilt
     [SerializeField] private float minTilt = -80f;     // Maximum downward tilt
+
+    private Transform ball;     // Reference to the golf ball
+    private Vector2 turn;       // Keeps track of mouse input for rotation
 
     void Start()
     {
