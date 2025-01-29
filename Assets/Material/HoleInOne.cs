@@ -4,12 +4,20 @@ using UnityEngine;
 
 public class HoleInOne : MonoBehaviour
 {
-    [SerializeField] Color winColor;
-   void OnTriggerEnter(Collider collider){
-    if(collider.CompareTag("Player")){
-        Debug.Log("Hole in one!");
-        GetComponent<Renderer>().material.color = winColor;
+    
+   
+    private void Awake()
+    {
+        
+    }
+
+    private void OnEnable()
+    {
+        //onWin += changeHoleColor;
+    }
+    private void OnDisable()
+    {
 
     }
-   }
+    
 }
