@@ -18,13 +18,14 @@ public class TitleScreenManager : MonoBehaviour
         _titleScreen = GetComponent<UIDocument>();
         var root = _titleScreen.rootVisualElement;
         //Provide functions that will listen to events
-        root.Query<Button>("StartButton").First().RegisterCallback<ClickEvent>(OnStartClicked);
+        root.Q<Button>("StartButton").clicked += OnStartClicked;
+        // Ensure timescale is set to 1
+        Time.timeScale = 1.0f;
+        UnityEngine.Cursor.lockState = CursorLockMode.None;
     }
 
-    private void OnStartClicked(ClickEvent evt)
+    private void OnStartClicked()
     {
-        if (evt.propagationPhase != PropagationPhase.AtTarget)
-            return;
         SceneController.LoadScene(nextSceneID, transitionDuration, transitionWaitTime);
     }
 

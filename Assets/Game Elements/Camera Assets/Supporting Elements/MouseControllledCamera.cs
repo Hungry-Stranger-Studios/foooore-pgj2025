@@ -73,10 +73,12 @@ public class MouseControlledCamera : MonoBehaviour
     private void pauseCamera()
     {
         cameraEnabled = false;
+        Cursor.lockState = CursorLockMode.None;
     }
 
     private void unpauseCamera()
     {
         cameraEnabled = true;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 }

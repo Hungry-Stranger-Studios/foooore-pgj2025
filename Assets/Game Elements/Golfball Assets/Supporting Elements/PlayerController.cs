@@ -205,13 +205,11 @@ public class PlayerController : MonoBehaviour
 
     private void pausePlayer()
     {
-        Time.timeScale = 0.0f;
         movementDisabled = true;
     }
 
     private void unpausePlayer()
     {
-        Time.timeScale = 1.0f;
-        movementDisabled = true;
+        movementDisabled = false;
     }
 }
