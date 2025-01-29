@@ -28,6 +28,8 @@ public class PauseManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
+            //begin with the pause menu turned off
+            pauseMenu = GameObject.Find("PauseMenu").GetComponent<PauseMenu>(); //PauseMenu is the only item with this component
         }
     }
     private void OnEnable()
@@ -40,8 +42,7 @@ public class PauseManager : MonoBehaviour
     }
     private void Start()
     {
-        //begin with the pause menu turned off
-        pauseMenu = transform.GetComponentInChildren<PauseMenu>(); //PauseMenu is the only item with this component
+        
         pauseMenu.gameObject.SetActive(false);
     }
 
@@ -66,12 +67,14 @@ public class PauseManager : MonoBehaviour
         onPauseGame?.Invoke();
         gamePaused = true;
         pauseMenu.gameObject.SetActive(true);
+        Time.timeScale = 0.001f;
     }
     private void Unpause()
     {
         onUnpauseGame?.Invoke();
         gamePaused = false;
         pauseMenu.gameObject.SetActive(false);
+        Time.timeScale = 1.0f;
     }
     
 }

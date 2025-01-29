@@ -18,22 +18,19 @@ public class PauseMenu : MonoBehaviour
         _pauseMenu = GetComponent<UIDocument>();
         var root = _pauseMenu.rootVisualElement;
         //Provide functions that will listen to events
-        root.Query<Button>("ContinueButton").First().RegisterCallback<ClickEvent>(OnContinueClicked);
-        root.Query<Button>("QuitButton").First().RegisterCallback<ClickEvent>(OnQuitClicked);
+        root.Q<Button>("ContinueButton").clicked += OnContinueClicked;
+        root.Q<Button>("QuitButton").clicked += OnQuitClicked;
     }
 
-    private void OnContinueClicked(ClickEvent evt)
+    private void OnContinueClicked()
     {
-        if (evt.propagationPhase != PropagationPhase.AtTarget)
-            return;
         //alternate method of if(OnContinue!=null){OnContinue.Invoke();}
         OnContinue?.Invoke();
     }
 
-    private void OnQuitClicked(ClickEvent evt)
+    private void OnQuitClicked()
     {
-        if (evt.propagationPhase != PropagationPhase.AtTarget)
-            return;
-        SceneController.LoadScene(0, 1, 1);
+        Time.timeScale = 1.0f;
+        SceneController.LoadScene(0, 1, 1);       
     }
 }
