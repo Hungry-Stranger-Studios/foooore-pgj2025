@@ -13,7 +13,7 @@ public class GameStateManager : MonoBehaviour
 {
     [Header("Level Elements")]
     [SerializeField] private BallDetection BallDetection;
-    [SerializeField] private PauseMenuManager PauseMenuManager;
+    [SerializeField] private PauseMenu PauseMenuManager;
     [SerializeField] private PauseManager PauseManager;
 
     

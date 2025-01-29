@@ -5,27 +5,12 @@ using UnityEngine;
 using UnityEngine.UIElements;
 
 
-public class PauseMenuManager : MonoBehaviour
+public class PauseMenu : MonoBehaviour
 {
-    public static PauseMenuManager Instance { get; private set; } //this class should be a singleton
-
     private UIDocument _pauseMenu;
     //For unpausing from the continue button
     public delegate void PauseMenuDelegate();
     public event PauseMenuDelegate OnContinue;
-
-    private void Awake()
-    {
-        //Singleton enforcing
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-        }
-        else
-        {
-            Instance = this;
-        }
-    }
     
     private void OnEnable()
     {
@@ -43,7 +28,6 @@ public class PauseMenuManager : MonoBehaviour
             return;
         //alternate method of if(OnContinue!=null){OnContinue.Invoke();}
         OnContinue?.Invoke();
-        
     }
 
     private void OnQuitClicked(ClickEvent evt)
