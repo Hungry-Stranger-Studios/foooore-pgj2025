@@ -23,7 +23,6 @@ public class GameManager : MonoBehaviour
             Debug.Log("GM MADE");
             //This object (and its children) should not be destroyed upon loading into a new scene
             Instance = this;
-            
         }
     }
     public PauseManager GetPauseManager()
