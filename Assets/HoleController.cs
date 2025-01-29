@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class HoleController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public delegate void Win();
+    public event Win onWin;
 
-    // Update is called once per frame
-    void Update()
+    [SerializeField] Color winColor;    //upon the ball hitting the hole, its beacon will change to this color
+
+    private void OnTriggerEnter(Collider other)
     {
-        
+        if (other.CompareTag("Player"))
+        {
+            GetComponentInChildren<Renderer>().material.color = winColor;
+            onWin?.Invoke();
+        }
     }
 }

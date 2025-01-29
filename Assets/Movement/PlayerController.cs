@@ -75,7 +75,7 @@ public class PlayerController : MonoBehaviour
                 transform.position += UnityEngine.Vector3.right * airSpeed * Time.deltaTime;
             }
             else{
-                Debug.Log("Ball is grounded");
+                //Debug.Log("Ball is grounded");
             }
 
         }

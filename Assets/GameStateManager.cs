@@ -12,14 +12,31 @@ using UnityEngine;
 public class GameStateManager : MonoBehaviour
 {
     [Header("Level Elements")]
-    [SerializeField] private BallDetection BallDetection;
-    [SerializeField] private PauseMenu PauseMenuManager;
-    [SerializeField] private PauseManager PauseManager;
+    [SerializeField] private HoleController HoleController;
 
-    
+    [Header("Scene Transition Properties")]
+    [SerializeField] private int nextSceneID = 1;
+    [SerializeField] private float transitionDuration = 1;
+    [SerializeField] private float transitionWaitTime = 1;
+
+
     public static GameStateManager Instance { get; private set; }
     //delegate for a win con
     public delegate void winConditionDelegate();
     public event winConditionDelegate onWin;
 
+    private void OnEnable()
+    {
+        HoleController.onWin += winGame;
+    }
+    private void OnDisable()
+    {
+        HoleController.onWin -= winGame;
+    }
+
+    private void winGame()
+    {
+        onWin?.Invoke();
+        SceneController.LoadScene(nextSceneID, transitionDuration, transitionWaitTime);
+    }
 }
