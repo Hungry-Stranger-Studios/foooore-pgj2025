@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/GameController Prototyping/Title Screen.unity
+    path: Assets/Scenes/Title Screen.unity
     guid: aa164bc27d46bdc4ab2285e756bd10d9
   - enabled: 1
     path: Assets/GameController Prototyping/GameController.unity
