@@ -14,7 +14,7 @@ public class HoleInOne : MonoBehaviour
 
     private void OnEnable()
     {
-        onWin += changeHoleColor;
+        //onWin += changeHoleColor;
     }
     private void OnDisable()
     {
