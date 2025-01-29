@@ -25,7 +25,7 @@ public class ragdoll_controller : MonoBehaviour
                 limb_rb.AddForce(hitVel.normalized * ragdollPushForce, ForceMode.Impulse);   // Apply force in the direction of the velocity, multiplied by the power
             }
             
-            col.rigidbody.velocity = new Vector3(hitVel.x, hitVel.y + upwardsRicochetForce, hitVel.z);  //Apply an upwards velocity to the ball
+            col.rigidbody.velocity = new Vector3(hitVel.x, upwardsRicochetForce, hitVel.z);  //Apply an upwards velocity to the ball
 
             SphereCollider ballSpCol = col.gameObject.GetComponent<SphereCollider>();   //Get balls collider
             ballSpCol.isTrigger = true; //Turn off its collider

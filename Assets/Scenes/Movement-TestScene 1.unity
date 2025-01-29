@@ -284,6 +284,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6147212388356859523, guid: 52715d0f296d4b44e9bc78ca9b30ceb9, type: 3}
+      propertyPath: m_Center.y
+      value: 0.002
+      objectReference: {fileID: 0}
     - target: {fileID: 6243881492144655677, guid: 52715d0f296d4b44e9bc78ca9b30ceb9, type: 3}
       propertyPath: m_LocalScale.x
       value: 3.17
@@ -858,7 +862,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8012445931527602967, guid: 623e3925086a6124192693cea09695dd, type: 3}
       propertyPath: airSpeed
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8012445931527602967, guid: 623e3925086a6124192693cea09695dd, type: 3}
       propertyPath: chargeRate

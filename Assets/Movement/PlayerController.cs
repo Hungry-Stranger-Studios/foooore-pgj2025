@@ -70,18 +70,18 @@ public class PlayerController : MonoBehaviour
          // Adjust the angle for the desired tilt
 
             if (Input.GetKey(KeyCode.A)) {
-                transform.position += playerCamera.transform.right * -1 * airSpeed * Time.deltaTime;
+                rb.AddForce(playerCamera.transform.right * airSpeed * -1);
             }
             if (Input.GetKey(KeyCode.D)) {
-                transform.position += playerCamera.transform.right * airSpeed * Time.deltaTime;
+                rb.AddForce(playerCamera.transform.right * airSpeed);
             }
             if (Input.GetKey(KeyCode.W))
             {
-                transform.position += playerCamera.transform.forward * airSpeed * Time.deltaTime;
+                rb.AddForce(playerCamera.transform.forward * airSpeed);
             }
             if (Input.GetKey(KeyCode.S))
             {
-                transform.position += playerCamera.transform.forward * -1 * airSpeed * Time.deltaTime;
+                rb.AddForce(playerCamera.transform.forward * airSpeed * -1);
             }
         }
     }
