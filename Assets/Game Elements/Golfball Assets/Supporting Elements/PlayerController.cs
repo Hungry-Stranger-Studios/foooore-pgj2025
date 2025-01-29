@@ -7,44 +7,54 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-   private Rigidbody rb;
-   private Renderer ballRenderer;
-   private LineRenderer lineRenderer;
 
-   [Header("Swing Settings")]
-   [SerializeField] private float speed = 5f;
-   [SerializeField] private float maxSwingForce = 100f;
-   [SerializeField] private float chargeRate = 10f;
+
+    [Header("Swing Settings")]
+    [SerializeField] private float maxSwingForce = 100f;        // Swing force for how hard you hit the ball
+    [SerializeField] private float chargeRate = 10f;            // Rate at which the swing charges
     
     [Header("Color Settings")]
-    [SerializeField] private Color startColor = Color.white;
-    [SerializeField] private Color midColor = Color.green;
-    [SerializeField] private Color maxForceColor = Color.red;
+    [SerializeField] private Color startColor = Color.white;    // Colour of the ball before a swing is charged...
+    [SerializeField] private Color midColor = Color.green;      // During the charge...
+    [SerializeField] private Color maxForceColor = Color.red;   // And when its fully charged
 
     [Header("Trajectory Settings")]
-    [SerializeField] private int trajectoryPoints = 30; // Number of points to plot
-    [SerializeField] private float timeStep = 0.1f; // Time between points
-    [SerializeField] private float gravityMultiplier = 1f; // Simulate gravity
-    [Header("Camera Settings")]
-    [SerializeField] private Camera playerCamera;
+    [SerializeField] private int trajectoryPoints = 30;         // Number of points to plot
+    [SerializeField] private float timeStep = 0.1f;             // Time between points
+    [SerializeField] private float gravityMultiplier = 1f;      // Simulate gravity
+
+    [Header("Air Movement Settings")]
+    [SerializeField] private float airSpeed = 10f;              // The scaler for the force applied in any direction while moving in the air
+
+    private Camera playerCamera;            // The camera following the ball
+    private Rigidbody rb;                   // The rigidbody attatched to the ball
+    private Renderer ballRenderer;          
+    private LineRenderer lineRenderer;
+
+    // Internal compitation values
     private float currentSwingForce = 0f;
     private bool isCharging = false;
     private bool isGrounded = false;
     public bool canHit = true;
-    [Header("Air Movement Settings")]
-    [SerializeField] private float airSpeed = 10f;
+
+
     void Start()
     {
         
         rb = GetComponent<Rigidbody>();
-         ballRenderer = GetComponent<Renderer>(); 
+
+        playerCamera = GameObject.Find("Main Camera").GetComponent<Camera>();   // Dynamically finds the camera in the scene
+
+        ballRenderer = GetComponent<Renderer>(); 
         if (ballRenderer != null){
             ballRenderer.material.color = startColor;
         }
+
         lineRenderer = GetComponent<LineRenderer>();
         if(lineRenderer == null){
             lineRenderer = gameObject.AddComponent<LineRenderer>();
         }
+
         lineRenderer.positionCount = trajectoryPoints;
         lineRenderer.startWidth = 0.05f;
         lineRenderer.endWidth = 0.05f;
@@ -65,10 +75,9 @@ public class PlayerController : MonoBehaviour
         AirMovement();
     }
 
+    //Air movement controls. WASD to add forces in the respective direction relative to the cameras forward facing direction
     private void AirMovement(){
         if(!isGrounded){
-         // Adjust the angle for the desired tilt
-
             if (Input.GetKey(KeyCode.A)) {
                 rb.AddForce(playerCamera.transform.right * airSpeed * -1);
             }

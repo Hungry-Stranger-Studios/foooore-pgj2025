@@ -860,6 +860,10 @@ PrefabInstance:
       propertyPath: m_Radius
       value: 1.19
       objectReference: {fileID: 0}
+    - target: {fileID: 4813027473206994323, guid: 623e3925086a6124192693cea09695dd, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: 5ff199b278ceec946a8b020f66f8846c, type: 2}
     - target: {fileID: 8012445931527602967, guid: 623e3925086a6124192693cea09695dd, type: 3}
       propertyPath: airSpeed
       value: 10
