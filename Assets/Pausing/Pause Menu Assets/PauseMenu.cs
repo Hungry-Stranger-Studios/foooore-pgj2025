@@ -32,6 +32,7 @@ public class PauseMenu : MonoBehaviour
     private void OnRetryClicked()
     {
         SceneController.ReloadScene(0.5f, 0.5f);
+        OnContinue?.Invoke();
     }
     private void OnQuitClicked()
     {
