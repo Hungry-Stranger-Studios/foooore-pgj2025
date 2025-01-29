@@ -7,35 +7,25 @@ using UnityEngine.SceneManagement;
 // https://www.youtube.com/watch?v=kgbUFQDKOBM
 public class SceneController : MonoBehaviour
 {
-    //Should be a singleton
-    public static SceneController instance { get; private set; }
     public Image fadeEffect;
 
     void Awake()
     {
-        //singleton enforcing
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-
-            fadeEffect.gameObject.SetActive(true);
-            fadeEffect = GetComponentInChildren<Image>();
-            fadeEffect.rectTransform.sizeDelta = new Vector2(Screen.width + 20, Screen.height + 20);
-            fadeEffect.gameObject.SetActive(false);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        Debug.Log("SM MADE");
+        //Called when script instance is first loaded
+        fadeEffect.gameObject.SetActive(true);
+        fadeEffect = GetComponentInChildren<Image>();
+        fadeEffect.rectTransform.sizeDelta = new Vector2(Screen.width + 20, Screen.height + 20);
+        fadeEffect.gameObject.SetActive(false);
+        GameManager.Instance.SetSceneController(this);
     }
 
-    public static void LoadScene(int index, float duration = 1, float waitTime = 0)
+    public void LoadScene(int index, float duration = 1, float waitTime = 0)
     {
-        instance.StartCoroutine(instance.FadeScene(index, duration, waitTime));
+        GameManager.Instance.GetSceneController().StartCoroutine(GameManager.Instance.GetSceneController().FadeScene(index, duration, waitTime));
     }
 
-    public static void ReloadScene(float duration = 0, float waitTime = 0)
+    public void ReloadScene(float duration = 0, float waitTime = 0)
     {
         LoadScene(SceneManager.GetActiveScene().buildIndex, duration, waitTime);
     }

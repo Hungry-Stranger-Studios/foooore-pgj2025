@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; } //this class should be a singleton
 
     private PauseManager pauseManager;
-    private SceneController sceneController;
+    private static SceneController sceneController;
 
 
     private void Awake()
@@ -20,17 +20,27 @@ public class GameManager : MonoBehaviour
         }
         else
         {
+            Debug.Log("GM MADE");
             //This object (and its children) should not be destroyed upon loading into a new scene
             Instance = this;
-            DontDestroyOnLoad(gameObject);   
+            
         }
     }
     public PauseManager GetPauseManager()
     {
         return pauseManager;
     }
+    public void SetPauseManager(PauseManager pm)
+    {
+        pauseManager = pm;
+    }
+
     public SceneController GetSceneController()
     {
         return sceneController;
+    }
+    public void SetSceneController(SceneController sc)
+    {
+        sceneController = sc;
     }
 }

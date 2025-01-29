@@ -31,12 +31,13 @@ public class PauseMenu : MonoBehaviour
     }
     private void OnRetryClicked()
     {
-        SceneController.ReloadScene(0.5f, 0.5f);
+        Time.timeScale = 1.0f;
+        GameManager.Instance.GetSceneController().ReloadScene(0.5f, 0.5f);
         OnContinue?.Invoke();
     }
     private void OnQuitClicked()
     {
         Time.timeScale = 1.0f;
-        SceneController.LoadScene(0, 1, 1);       
+        GameManager.Instance.GetSceneController().LoadScene(0, 1, 1);       
     }
 }

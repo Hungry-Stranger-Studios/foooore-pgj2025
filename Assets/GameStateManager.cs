@@ -37,6 +37,6 @@ public class GameStateManager : MonoBehaviour
     private void winGame()
     {
         onWin?.Invoke();
-        SceneController.LoadScene(nextSceneID, transitionDuration, transitionWaitTime);
+        GameManager.Instance.GetSceneController().LoadScene(nextSceneID, transitionDuration, transitionWaitTime);
     }
 }

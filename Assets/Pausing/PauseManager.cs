@@ -20,16 +20,13 @@ public class PauseManager : MonoBehaviour
     private void Awake()
     {
         pauseMenu = GameObject.Find("PauseMenu").GetComponent<PauseMenu>(); //PauseMenu is the only item with this component
+        GameManager.Instance.SetPauseManager(this);
     }
     private void OnEnable()
     {
         pauseMenu.OnContinue += Unpause;
     }
-    /* Apparently this isn't needed. It just causes a bug
-     * private void OnDisable()
-    {
-        pauseMenu.OnContinue -= Unpause;
-    }*/
+
     private void Start()
     {
         
