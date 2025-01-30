@@ -187,7 +187,7 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = true;
-            GameManager.Instance.GetSceneController().ReloadScene(0.2f, 2f);
+            GameManager.Instance.reloadScene(0.2f, 2f);
         }
         if (collision.gameObject.CompareTag("Ragdoll"))
         {

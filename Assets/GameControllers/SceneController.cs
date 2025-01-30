@@ -11,7 +11,6 @@ public class SceneController : MonoBehaviour
 
     void Awake()
     {
-        Debug.Log("SM MADE");
         //Called when script instance is first loaded
         fadeEffect.gameObject.SetActive(true);
         fadeEffect = GetComponentInChildren<Image>();

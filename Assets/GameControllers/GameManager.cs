@@ -42,4 +42,14 @@ public class GameManager : MonoBehaviour
     {
         sceneController = sc;
     }
+
+    public void changeScene(int nextSceneID, float transitionDuration, float transitionWaitTime)
+    {
+        sceneController?.LoadScene(nextSceneID, transitionDuration, transitionWaitTime);
+    }
+    public void reloadScene(float transitionDuration, float transitionWaitTime)
+    {
+        sceneController?.ReloadScene(transitionDuration, transitionWaitTime);
+    }
+
 }

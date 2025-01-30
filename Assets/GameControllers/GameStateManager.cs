@@ -23,16 +23,21 @@ public class GameStateManager : MonoBehaviour
 
     private void OnEnable()
     {
-        HoleController.onWin += winGame;
+        if (HoleController != null)
+        {
+            HoleController.onWin += winGame;
+        }
     }
     private void OnDisable()
     {
-        HoleController.onWin -= winGame;
+        if (HoleController != null)
+        {
+            HoleController.onWin -= winGame;
+        }
     }
 
     private void winGame()
     {
-        onWin?.Invoke();
-        GameManager.Instance.GetSceneController().LoadScene(nextSceneID, transitionDuration, transitionWaitTime);
+        GameManager.Instance.changeScene(nextSceneID, transitionDuration, transitionWaitTime);
     }
 }

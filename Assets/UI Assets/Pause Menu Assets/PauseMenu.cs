@@ -4,6 +4,7 @@ using UnityEditor;
 using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.UIElements;
+using UnityEngine.SceneManagement;
 
 
 public class PauseMenu : MonoBehaviour
@@ -32,12 +33,12 @@ public class PauseMenu : MonoBehaviour
     private void OnRetryClicked()
     {
         Time.timeScale = 1.0f;
-        GameManager.Instance.GetSceneController().ReloadScene(0.5f, 0.5f);
+        GameManager.Instance.reloadScene(0.5f, 0.5f);
         OnContinue?.Invoke();
     }
     private void OnQuitClicked()
     {
         Time.timeScale = 1.0f;
-        GameManager.Instance.GetSceneController().LoadScene(0, 1, 1);       
+        GameManager.Instance.changeScene(0, 1, 1);       
     }
 }
