@@ -1,0 +1,51 @@
+#background {
+    flex-grow: 1;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(0, 102, 106);
+}
+
+#main-container {
+    flex-direction: row;
+    height: 350px;
+}
+
+#level-list {
+    width: 230px;
+    border-left-color: rgb(0, 86, 159);
+    border-right-color: rgb(0, 86, 159);
+    border-top-color: rgb(0, 86, 159);
+    border-bottom-color: rgb(0, 86, 159);
+    border-top-width: 4px;
+    border-right-width: 4px;
+    border-bottom-width: 4px;
+    border-left-width: 4px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    background-color: rgba(0, 102, 106, 0);
+    margin-right: 6px;
+}
+
+#level-name {
+}
+
+#right-container {
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+#details-container {
+    justify-content: space-between;
+}
+
+#details {
+}
+
+#level-portrait {
+}
+
+.unity-collection-view_item {
+    justify-content: center;
+}
