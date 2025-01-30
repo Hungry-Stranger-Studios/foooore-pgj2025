@@ -8112,7 +8112,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6210950255545938355, guid: fc4e3ea8150c4dd4a862f936c3fe6220, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.79
+      value: 13.07
       objectReference: {fileID: 0}
     - target: {fileID: 6210950255545938355, guid: fc4e3ea8150c4dd4a862f936c3fe6220, type: 3}
       propertyPath: m_LocalPosition.y
@@ -8120,7 +8120,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6210950255545938355, guid: fc4e3ea8150c4dd4a862f936c3fe6220, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.9
+      value: -30.97
       objectReference: {fileID: 0}
     - target: {fileID: 6210950255545938355, guid: fc4e3ea8150c4dd4a862f936c3fe6220, type: 3}
       propertyPath: m_LocalRotation.w
@@ -8284,7 +8284,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8012445931527602967, guid: 623e3925086a6124192693cea09695dd, type: 3}
       propertyPath: chargeRate
-      value: 45
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8012445931527602967, guid: 623e3925086a6124192693cea09695dd, type: 3}
       propertyPath: playerCamera
@@ -8292,7 +8292,7 @@ PrefabInstance:
       objectReference: {fileID: 369276334}
     - target: {fileID: 8012445931527602967, guid: 623e3925086a6124192693cea09695dd, type: 3}
       propertyPath: maxSwingForce
-      value: 50
+      value: 35
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
