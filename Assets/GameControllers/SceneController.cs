@@ -43,6 +43,8 @@ public class SceneController : MonoBehaviour
 
         yield return new WaitForSeconds(waitTime);
 
+        
+
         for (float t = 0; t < 1; t += Time.deltaTime / duration)
         {
             fadeEffect.color = new Color(0, 0, 0, Mathf.Lerp(1, 0, t));

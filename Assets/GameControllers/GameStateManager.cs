@@ -10,13 +10,6 @@ public class GameStateManager : MonoBehaviour
     [Header("Level Elements")]
     [SerializeField] private HoleController HoleController;
 
-    [Header("Scene Transition Properties")]
-    [SerializeField] private int nextSceneID = 1;
-    [SerializeField] private float transitionDuration = 1;
-    [SerializeField] private float transitionWaitTime = 1;
-
-
-    public static GameStateManager Instance { get; private set; }
     //delegate for a win con
     public delegate void winConditionDelegate();
     public event winConditionDelegate onWin;
@@ -38,6 +31,6 @@ public class GameStateManager : MonoBehaviour
 
     private void winGame()
     {
-        GameManager.Instance.changeScene(nextSceneID, transitionDuration, transitionWaitTime);
+        GameManager.Instance.changeScene();
     }
 }

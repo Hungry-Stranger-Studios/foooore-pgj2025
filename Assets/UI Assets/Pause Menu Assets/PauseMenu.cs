@@ -13,6 +13,9 @@ public class PauseMenu : MonoBehaviour
     //For unpausing from the continue button
     public delegate void PauseMenuDelegate();
     public event PauseMenuDelegate OnContinue;
+    public event PauseMenuDelegate OnQuit;
+
+    private int _titleScreenID = 0;
     
     private void OnEnable()
     {
@@ -33,12 +36,14 @@ public class PauseMenu : MonoBehaviour
     private void OnRetryClicked()
     {
         Time.timeScale = 1.0f;
-        GameManager.Instance.reloadScene(0.5f, 0.5f);
+        GameManager.Instance.reloadScene();
         OnContinue?.Invoke();
     }
     private void OnQuitClicked()
     {
+        OnQuit?.Invoke();
+        GameManager.Instance.changeScene(_titleScreenID, 0.5f, 0f);
         Time.timeScale = 1.0f;
-        GameManager.Instance.changeScene(0, 1, 1);       
+
     }
 }

@@ -7,10 +7,6 @@ using UnityEngine.UIElements;
 public class TitleScreenManager : MonoBehaviour
 {
     private UIDocument _titleScreen;
-    //For unpausing from the continue button
-    [SerializeField] private int nextSceneID = 1;
-    [SerializeField] private float transitionDuration = 1;
-    [SerializeField] private float transitionWaitTime = 1;
 
     //Things to do when the title screen loads
     private void OnEnable()
@@ -38,7 +34,7 @@ public class TitleScreenManager : MonoBehaviour
 
     private void OnStartClicked()
     {
-        GameManager.Instance.changeScene(nextSceneID, transitionDuration, transitionWaitTime);
+        GameManager.Instance.changeScene();
     }
 
 }
