@@ -241,10 +241,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1040631605}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ae2c8492189d7445b9815a7485ef18e, type: 3}
+  m_Script: {fileID: 11500000, guid: 39644ec628b931040b225ad1a745f1d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ListEntryTemplate: {fileID: 9197481963319205126, guid: 5635154973dfab244bd81831593b46ac, type: 3}
+  levelOneID: 0
+  levelTwoID: 1
+  levelThreeID: 2
+  sceneTransitionTime: 1
+  sceneWaitTime: 2
 --- !u!1 &1269697351
 GameObject:
   m_ObjectHideFlags: 0

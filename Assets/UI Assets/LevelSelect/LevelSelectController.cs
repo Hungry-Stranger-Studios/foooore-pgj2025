@@ -3,72 +3,43 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class LevelSelectController
+public class LevelSelectController : MonoBehaviour
 {
-    //UXML Asset for level entries
-    VisualTreeAsset m_LevelEntryTemp;
+    private UIDocument _pauseMenu;
 
-    //UI Element References
-    ListView m_LevelList;
-    Label m_LevelLabel;
-    VisualElement m_LevelImage;
+    [Header("Scene IDs")]
+    [SerializeField] private int levelOneID;
+    [SerializeField] private int levelTwoID;
+    [SerializeField] private int levelThreeID;
 
-    List<LevelData> m_AllLevels;
+    [Header("Scene Transition Values")]
+    [SerializeField] private float sceneTransitionTime;
+    [SerializeField] private float sceneWaitTime;
 
-    public void InitializeLevelList(VisualElement root, VisualTreeAsset listElementTemplate)
+    private void OnEnable()
     {
-        EnumerateAllLevels();
-
-        m_LevelEntryTemp = listElementTemplate;
-
-        m_LevelList = root.Q<ListView>("level-list");
-
-        m_LevelLabel = root.Q<Label>("level-name");
-        m_LevelImage = root.Q<Image>("level-image");
-
-        FillLevelList();
-
-        m_LevelList.selectionChanged += OnLevelSelected;
+        //Retrieve UI Elements
+        _pauseMenu = GetComponent<UIDocument>();
+        var root = _pauseMenu.rootVisualElement;
+        //Provide functions that will listen to events
+        root.Query<VisualElement>("level-one-container").Children<Button>("level-start").First().clicked += buttonOne;
+        root.Query<VisualElement>("level-two-container").Children<Button>("level-start").First().clicked += buttonTwo;
+        root.Query<VisualElement>("level-three-container").Children<Button>("level-start").First().clicked += buttonThree;
     }
-
-    public void EnumerateAllLevels()
+    /*
+     * Yuck yuck yucky code
+     * But it works (poorly)
+     */
+    private void buttonOne()
     {
-        m_AllLevels = new List<LevelData>();
-        m_AllLevels.AddRange(Resources.LoadAll<LevelData>("Levels"));
+        GameManager.Instance.changeScene(levelOneID, sceneTransitionTime, sceneWaitTime);
+    }                                                
+    private void buttonTwo()
+    {
+        GameManager.Instance.changeScene(levelTwoID, sceneTransitionTime, sceneWaitTime);
     }
-
-    public void FillLevelList()
+    private void buttonThree() 
     {
-        m_LevelList.makeItem = () =>
-        {
-            // Instantiate the UXML template for the entry
-            var newListEntry = m_LevelEntryTemp.Instantiate();
-            // Instantiate a controller for the data
-            var newListEntryLogic = new LevelListItemController();
-            // Assign the controller script to the visual element
-            newListEntry.userData = newListEntryLogic;
-            // Initialize the controller script
-            newListEntryLogic.SetVisualElement(newListEntry);
-            // Return the root of the instantiated visual tree
-            return newListEntry;
-        };
-
-        // Set up bind function for a specific list entry
-        m_LevelList.bindItem = (item, index) =>
-        {
-            (item.userData as LevelListItemController)?.SetLevelData(m_AllLevels[index]);
-        };
-
-        // Set a fixed item height matching the height of the item provided in makeItem. 
-        // For dynamic height, see the virtualizationMethod property.
-        m_LevelList.fixedItemHeight = 45;
-
-        // Set the actual item's source list/array
-        m_LevelList.itemsSource = m_AllLevels;
-    }
-
-    private void OnLevelSelected(IEnumerable<object> selectedItem)
-    {
-
+        GameManager.Instance.changeScene(levelThreeID, sceneTransitionTime, sceneWaitTime);
     }
 }
