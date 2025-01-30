@@ -80,6 +80,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -150009337949190703, guid: b868d0a66e194644fbb6fca07bbdf068, type: 3}
+      propertyPath: m_UpdateWhenOffscreen
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -81343171696871663, guid: b868d0a66e194644fbb6fca07bbdf068, type: 3}
       propertyPath: m_UpdateWhenOffscreen
       value: 1
@@ -90,6 +94,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: b868d0a66e194644fbb6fca07bbdf068, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4503151917441550924, guid: b868d0a66e194644fbb6fca07bbdf068, type: 3}
+      propertyPath: m_UpdateWhenOffscreen
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4800545675622748477, guid: b868d0a66e194644fbb6fca07bbdf068, type: 3}
+      propertyPath: m_UpdateWhenOffscreen
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6761708314861323176, guid: b868d0a66e194644fbb6fca07bbdf068, type: 3}
+      propertyPath: m_UpdateWhenOffscreen
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7036213049465896255, guid: b868d0a66e194644fbb6fca07bbdf068, type: 3}
@@ -1224,7 +1240,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ragdollPushForce: 81.2
-  upwardsRicochetForce: 10
+  upwardsRicochetVelocity: 10
 --- !u!114 &6788510017596025902
 MonoBehaviour:
   m_ObjectHideFlags: 0
