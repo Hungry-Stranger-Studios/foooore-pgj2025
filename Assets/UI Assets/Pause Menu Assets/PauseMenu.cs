@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
+using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -19,6 +20,7 @@ public class PauseMenu : MonoBehaviour
         var root = _pauseMenu.rootVisualElement;
         //Provide functions that will listen to events
         root.Q<Button>("ContinueButton").clicked += OnContinueClicked;
+        root.Q<Button>("RetryButton").clicked += OnRetryClicked;
         root.Q<Button>("QuitButton").clicked += OnQuitClicked;
     }
 
@@ -27,10 +29,15 @@ public class PauseMenu : MonoBehaviour
         //alternate method of if(OnContinue!=null){OnContinue.Invoke();}
         OnContinue?.Invoke();
     }
-
+    private void OnRetryClicked()
+    {
+        Time.timeScale = 1.0f;
+        GameManager.Instance.GetSceneController().ReloadScene(0.5f, 0.5f);
+        OnContinue?.Invoke();
+    }
     private void OnQuitClicked()
     {
         Time.timeScale = 1.0f;
-        SceneController.LoadScene(0, 1, 1);       
+        GameManager.Instance.GetSceneController().LoadScene(0, 1, 1);       
     }
 }

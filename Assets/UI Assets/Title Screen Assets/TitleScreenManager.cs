@@ -26,7 +26,7 @@ public class TitleScreenManager : MonoBehaviour
 
     private void OnStartClicked()
     {
-        SceneController.LoadScene(nextSceneID, transitionDuration, transitionWaitTime);
+        GameManager.Instance.GetSceneController().LoadScene(nextSceneID, transitionDuration, transitionWaitTime);
     }
 
 }

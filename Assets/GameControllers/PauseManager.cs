@@ -16,30 +16,17 @@ public class PauseManager : MonoBehaviour
     //In-Class Data members
     private bool gamePaused = false; //tracking game state
     private PauseMenu pauseMenu; //manipulating the pause menu
-    public static PauseManager Instance { get; private set; } //this class should be a singleton
+    
     private void Awake()
     {
-        //Singleton enforcing
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-        }
-        else
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-            //begin with the pause menu turned off
-            pauseMenu = GameObject.Find("PauseMenu").GetComponent<PauseMenu>(); //PauseMenu is the only item with this component
-        }
+        pauseMenu = GameObject.Find("PauseMenu").GetComponent<PauseMenu>(); //PauseMenu is the only item with this component
+        GameManager.Instance.SetPauseManager(this);
     }
     private void OnEnable()
     {
         pauseMenu.OnContinue += Unpause;
     }
-    private void OnDisable()
-    {
-        pauseMenu.OnContinue -= Unpause;
-    }
+
     private void Start()
     {
         

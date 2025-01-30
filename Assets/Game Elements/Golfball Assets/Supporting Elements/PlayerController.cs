@@ -67,14 +67,14 @@ public class PlayerController : MonoBehaviour
 
     void OnEnable()
     {
-        PauseManager.Instance.onPauseGame += pausePlayer;
-        PauseManager.Instance.onUnpauseGame += unpausePlayer;
+        GameManager.Instance.GetPauseManager().onPauseGame += pausePlayer;
+        GameManager.Instance.GetPauseManager().onUnpauseGame += unpausePlayer;
     }
 
     void OnDisable()
     {
-        PauseManager.Instance.onPauseGame -= pausePlayer;
-        PauseManager.Instance.onUnpauseGame -= unpausePlayer;
+        GameManager.Instance.GetPauseManager().onPauseGame  -= pausePlayer;
+        GameManager.Instance.GetPauseManager().onUnpauseGame -= unpausePlayer;
     }
 
     // Update is called once per frame
@@ -87,7 +87,7 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         if(!movementDisabled)
-        AirMovement();
+            AirMovement();
     }
 
     //Air movement controls. WASD to add forces in the respective direction relative to the cameras forward facing direction
@@ -187,6 +187,7 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = true;
+            GameManager.Instance.GetSceneController().ReloadScene(0.2f, 2f);
         }
         if (collision.gameObject.CompareTag("Ragdoll"))
         {
@@ -201,6 +202,11 @@ public class PlayerController : MonoBehaviour
         {
             isGrounded = false;
         }
+    }
+
+    private void playerWin()
+    {
+
     }
 
     private void pausePlayer()

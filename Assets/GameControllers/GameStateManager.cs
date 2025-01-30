@@ -3,11 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// My idea with this super superclass is that it will handle the games state
-/// Many different managers will send events directly to this class. This class with then send events
-/// to the classes that are effected by those events.
-/// This way, not every class needs to be a singleton. We are able to create a bit more
-/// encapsulation
+/// This class is a bit yucky bit its a game jam and we dont have time damnit!!
 /// </summary>
 public class GameStateManager : MonoBehaviour
 {
@@ -37,6 +33,6 @@ public class GameStateManager : MonoBehaviour
     private void winGame()
     {
         onWin?.Invoke();
-        SceneController.LoadScene(nextSceneID, transitionDuration, transitionWaitTime);
+        GameManager.Instance.GetSceneController().LoadScene(nextSceneID, transitionDuration, transitionWaitTime);
     }
 }
