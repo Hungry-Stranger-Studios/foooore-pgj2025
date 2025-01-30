@@ -1,0 +1,58 @@
+#background {
+    flex-grow: 1;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(0, 102, 106);
+}
+
+#main-container {
+    flex-direction: row;
+    height: 350px;
+}
+
+#level-start {
+    -unity-font-style: bold;
+    font-size: 16px;
+}
+
+.unity-collection-view_item {
+    justify-content: center;
+}
+
+.level-container {
+    align-items: center;
+    justify-content: space-between;
+    align-self: center;
+}
+
+.level-select-text {
+}
+
+.title-text {
+    -unity-font-style: bold;
+    font-size: 32px;
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+
+.level-select-button {
+    border-top-width: 2px;
+    border-right-width: 2px;
+    border-bottom-width: 2px;
+    border-left-width: 2px;
+    border-top-left-radius: 13px;
+    border-top-right-radius: 13px;
+    border-bottom-right-radius: 13px;
+    border-bottom-left-radius: 13px;
+    border-left-color: rgb(14, 61, 63);
+    border-right-color: rgb(14, 61, 63);
+    border-top-color: rgb(14, 61, 63);
+    border-bottom-color: rgb(14, 61, 63);
+    background-color: rgb(191, 229, 231);
+}
+
+.level-select-button:hover {
+    background-color: rgb(112, 138, 140);
+}

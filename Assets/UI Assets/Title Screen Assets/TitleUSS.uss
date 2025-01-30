@@ -11,11 +11,7 @@ VisualElement {
 }
 
 .titleText {
-    -unity-font: url("project://database/Assets/Fonts/lumierepolis-font/Lumierepolis-Yqvn8.ttf?fileID=12800000&guid=e65da2d9dd7f6e745b668a7b9a836954&type=3#Lumierepolis-Yqvn8");
-    -unity-font-definition: initial;
-    font-size: 50px;
-    color: rgb(255, 255, 255);
-    text-shadow: 1.6px 0 0 rgb(22, 96, 136);
+    font-size: 36px;
 }
 
 .titleButton:hover {
