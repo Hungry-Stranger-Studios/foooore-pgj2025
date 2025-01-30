@@ -10,10 +10,6 @@ public class GameStateManager : MonoBehaviour
     [Header("Level Elements")]
     [SerializeField] private HoleController HoleController;
 
-    //delegate for a win con
-    public delegate void winConditionDelegate();
-    public event winConditionDelegate onWin;
-
     private void OnEnable()
     {
         if (HoleController != null)
