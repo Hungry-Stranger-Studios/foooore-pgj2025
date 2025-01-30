@@ -37,6 +37,7 @@ public class PlayerController : MonoBehaviour
     private bool isGrounded = false;
     public bool canHit = true;
     private bool movementDisabled = false;
+    private bool _dontLoadNext = false;
 
 
     void Start()
@@ -63,18 +64,22 @@ public class PlayerController : MonoBehaviour
         lineRenderer.startColor = Color.green;
         lineRenderer.endColor = Color.red;
         lineRenderer.enabled = false; // Hide initially
+
+        //_dontLoadNext = false;
     }
 
     void OnEnable()
     {
         GameManager.Instance.GetPauseManager().onPauseGame += pausePlayer;
         GameManager.Instance.GetPauseManager().onUnpauseGame += unpausePlayer;
+        GameManager.Instance.GetPauseManager().pauseMenu.OnQuit += playerQuit;
     }
 
     void OnDisable()
     {
         GameManager.Instance.GetPauseManager().onPauseGame  -= pausePlayer;
         GameManager.Instance.GetPauseManager().onUnpauseGame -= unpausePlayer;
+        GameManager.Instance.GetPauseManager().pauseMenu.OnQuit -= playerQuit;
     }
 
     // Update is called once per frame
@@ -186,8 +191,11 @@ public class PlayerController : MonoBehaviour
         // Check if the ball collides with the ground layer
         if (collision.gameObject.CompareTag("Ground"))
         {
+            Debug.Log(_dontLoadNext);
+            if (_dontLoadNext)
+                return;
             isGrounded = true;
-            GameManager.Instance.GetSceneController().ReloadScene(0.2f, 2f);
+            GameManager.Instance.reloadScene();
         }
         if (collision.gameObject.CompareTag("Ragdoll"))
         {
@@ -202,6 +210,13 @@ public class PlayerController : MonoBehaviour
         {
             isGrounded = false;
         }
+    }
+
+    private void playerQuit()
+    {
+        Debug.Log("Hi");
+        _dontLoadNext = true;
+        Debug.Log(_dontLoadNext);
     }
 
     private void playerWin()

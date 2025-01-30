@@ -15,7 +15,7 @@ public class PauseManager : MonoBehaviour
     public event PauseGame onUnpauseGame;
     //In-Class Data members
     private bool gamePaused = false; //tracking game state
-    private PauseMenu pauseMenu; //manipulating the pause menu
+    public PauseMenu pauseMenu; //manipulating the pause menu
     
     private void Awake()
     {
