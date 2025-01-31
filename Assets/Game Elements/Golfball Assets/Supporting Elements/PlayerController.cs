@@ -204,6 +204,7 @@ public class PlayerController : MonoBehaviour
             Debug.Log(_dontLoadNext);
             if (_dontLoadNext)
                 return;
+            _dontLoadNext = true;
             isGrounded = true;
             audioSource.PlayOneShot(awwClip);
             StartCoroutine(ReloadSceneWithDelay(awwClip.length));

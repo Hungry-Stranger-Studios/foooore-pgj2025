@@ -244,9 +244,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39644ec628b931040b225ad1a745f1d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelOneID: 0
-  levelTwoID: 1
-  levelThreeID: 2
+  levelOneID: 2
+  levelTwoID: 3
+  levelThreeID: 4
   sceneTransitionTime: 1
   sceneWaitTime: 2
 --- !u!1 &1269697351

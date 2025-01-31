@@ -219,7 +219,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 25, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 10.5, y: 1, z: 10.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8638515887112927622}
@@ -261,7 +261,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b3edeaeff1e5ca43b194f59c652ac21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  winColor: {r: 0, g: 0, b: 0, a: 0}
+  winColor: {r: 0, g: 1, b: 0.96124196, a: 0.54509807}
   audioSource: {fileID: 7090009707837928934}
   clapClip: {fileID: 8300000, guid: 9f7ebbb596457fb43b033a1181d11a12, type: 3}
 --- !u!82 &7090009707837928934
