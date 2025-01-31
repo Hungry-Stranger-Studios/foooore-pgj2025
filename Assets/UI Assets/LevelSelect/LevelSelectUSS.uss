@@ -9,11 +9,7 @@
 #main-container {
     flex-direction: row;
     height: 350px;
-}
-
-#level-start {
-    -unity-font-style: bold;
-    font-size: 16px;
+    justify-content: center;
 }
 
 .unity-collection-view_item {
@@ -39,24 +35,31 @@
 }
 
 .level-select-button {
-    border-top-width: 2px;
-    border-right-width: 2px;
-    border-bottom-width: 2px;
-    border-left-width: 2px;
+    border-top-width: 3px;
+    border-right-width: 3px;
+    border-bottom-width: 3px;
+    border-left-width: 3px;
     border-top-left-radius: 13px;
     border-top-right-radius: 13px;
     border-bottom-right-radius: 13px;
     border-bottom-left-radius: 13px;
-    border-left-color: rgb(14, 61, 63);
-    border-right-color: rgb(14, 61, 63);
-    border-top-color: rgb(14, 61, 63);
-    border-bottom-color: rgb(14, 61, 63);
+    border-left-color: rgb(22, 96, 136);
+    border-right-color: rgb(22, 96, 136);
+    border-top-color: rgb(22, 96, 136);
+    border-bottom-color: rgb(22, 96, 136);
     background-color: rgb(191, 229, 231);
     width: 100%;
+    -unity-font: url("project://database/Assets/Fonts/lumierepolis-font/LumierepolisBold-rv5E9.ttf?fileID=12800000&guid=94fd79c4f0c06b24e9f2ac3510a1f829&type=3#LumierepolisBold-rv5E9");
+    -unity-font-definition: initial;
+    color: rgb(193, 202, 214);
+    font-size: 38px;
+    -unity-font-style: normal;
+    -unity-text-outline-color: rgb(22, 96, 136);
+    -unity-text-outline-width: 1px;
 }
 
 .level-select-button:hover {
-    background-color: rgb(112, 138, 140);
+    background-color: rgb(255, 25, 63);
 }
 
 .details-container {

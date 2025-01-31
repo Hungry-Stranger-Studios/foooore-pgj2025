@@ -3,30 +3,21 @@
     <Style src="project://database/Assets/UI%20Assets/OveralUSS.uss?fileID=7433441132597879392&amp;guid=c43f85713db967b459887ffe056d60d0&amp;type=3#OveralUSS" />
     <ui:VisualElement name="background" style="flex-grow: 1; -unity-background-scale-mode: scale-and-crop;">
         <ui:Label tabindex="-1" text="Level Select" parse-escape-sequences="true" display-tooltip-when-elided="true" name="page-title" class="level-select-text title-text game-text" />
-        <ui:VisualElement name="main-container" style="flex-grow: 1; align-self: auto; width: 950px; align-items: center; justify-content: space-between;">
+        <ui:VisualElement name="main-container" style="width: 950px; flex-wrap: wrap;">
             <ui:VisualElement name="tutorial-container" class="level-container" style="align-items: center; justify-content: center; background-color: rgb(71, 197, 202); border-left-color: rgb(0, 95, 99); border-right-color: rgb(0, 95, 99); border-top-color: rgb(0, 95, 99); border-bottom-color: rgb(0, 95, 99); border-top-width: 2px; border-right-width: 2px; border-bottom-width: 2px; border-left-width: 2px; width: 252px; border-top-left-radius: 15px; border-top-right-radius: 15px; border-bottom-right-radius: 15px; border-bottom-left-radius: 15px; height: 163px; padding-top: 8px; padding-right: 8px; padding-bottom: 8px; padding-left: 8px;">
-                <ui:VisualElement name="details" focusable="false" class="details-container">
-                    <ui:VisualElement name="level-portrait" style="flex-grow: 1;" />
-                </ui:VisualElement>
-                <ui:Button text="Tutorial" parse-escape-sequences="true" display-tooltip-when-elided="true" name="level-start" class="level-select-text level-select-button game-text" />
+                <ui:Button text="Tutorial" parse-escape-sequences="true" display-tooltip-when-elided="true" name="level-start" class="level-select-button" />
             </ui:VisualElement>
             <ui:VisualElement name="level-one-container" class="level-container" style="align-items: center; justify-content: center; background-color: rgb(71, 197, 202); border-left-color: rgb(0, 95, 99); border-right-color: rgb(0, 95, 99); border-top-color: rgb(0, 95, 99); border-bottom-color: rgb(0, 95, 99); border-top-width: 2px; border-right-width: 2px; border-bottom-width: 2px; border-left-width: 2px; width: 252px; border-top-left-radius: 15px; border-top-right-radius: 15px; border-bottom-right-radius: 15px; border-bottom-left-radius: 15px; height: 163px; padding-top: 8px; padding-right: 8px; padding-bottom: 8px; padding-left: 8px;">
-                <ui:VisualElement name="details" class="details-container">
-                    <ui:VisualElement name="level-portrait" style="flex-grow: 1;" />
-                </ui:VisualElement>
-                <ui:Button text="Level One" parse-escape-sequences="true" display-tooltip-when-elided="true" name="level-start" class="level-select-text level-select-button game-text" />
+                <ui:Button text="Level One" parse-escape-sequences="true" display-tooltip-when-elided="true" name="level-start" class="level-select-button" />
             </ui:VisualElement>
-            <ui:VisualElement name="level-two-container" style="align-items: center; justify-content: center; background-color: rgb(71, 197, 202); border-left-color: rgb(0, 95, 99); border-right-color: rgb(0, 95, 99); border-top-color: rgb(0, 95, 99); border-bottom-color: rgb(0, 95, 99); border-top-width: 2px; border-right-width: 2px; border-bottom-width: 2px; border-left-width: 2px; width: 252px; border-top-left-radius: 15px; border-top-right-radius: 15px; border-bottom-right-radius: 15px; border-bottom-left-radius: 15px; height: 163px; padding-top: 8px; padding-right: 8px; padding-bottom: 8px; padding-left: 8px;">
-                <ui:VisualElement name="details" class="details-container">
-                    <ui:VisualElement name="level-portrait" style="flex-grow: 1;" />
-                </ui:VisualElement>
-                <ui:Button text="Level Two" parse-escape-sequences="true" display-tooltip-when-elided="true" name="level-start" class="level-select-text level-select-button game-text" />
+            <ui:VisualElement name="level-two-container" class="level-container" style="align-items: center; justify-content: center; background-color: rgb(71, 197, 202); border-left-color: rgb(0, 95, 99); border-right-color: rgb(0, 95, 99); border-top-color: rgb(0, 95, 99); border-bottom-color: rgb(0, 95, 99); border-top-width: 2px; border-right-width: 2px; border-bottom-width: 2px; border-left-width: 2px; width: 252px; border-top-left-radius: 15px; border-top-right-radius: 15px; border-bottom-right-radius: 15px; border-bottom-left-radius: 15px; height: 163px; padding-top: 8px; padding-right: 8px; padding-bottom: 8px; padding-left: 8px;">
+                <ui:Button text="Level Two" parse-escape-sequences="true" display-tooltip-when-elided="true" name="level-start" class="level-select-button" />
             </ui:VisualElement>
-            <ui:VisualElement name="level-three-container" style="align-items: center; justify-content: center; background-color: rgb(71, 197, 202); border-left-color: rgb(0, 95, 99); border-right-color: rgb(0, 95, 99); border-top-color: rgb(0, 95, 99); border-bottom-color: rgb(0, 95, 99); border-top-width: 2px; border-right-width: 2px; border-bottom-width: 2px; border-left-width: 2px; width: 252px; border-top-left-radius: 15px; border-top-right-radius: 15px; border-bottom-right-radius: 15px; border-bottom-left-radius: 15px; height: 163px; padding-top: 8px; padding-right: 8px; padding-bottom: 8px; padding-left: 8px;">
-                <ui:VisualElement name="details" class="details-container">
-                    <ui:VisualElement name="level-portrait" style="flex-grow: 1;" />
-                </ui:VisualElement>
-                <ui:Button text="Level Three" parse-escape-sequences="true" display-tooltip-when-elided="true" name="level-start" class="level-select-text level-select-button game-text" />
+            <ui:VisualElement name="level-three-container" class="level-container" style="align-items: center; justify-content: center; background-color: rgb(71, 197, 202); border-left-color: rgb(0, 95, 99); border-right-color: rgb(0, 95, 99); border-top-color: rgb(0, 95, 99); border-bottom-color: rgb(0, 95, 99); border-top-width: 2px; border-right-width: 2px; border-bottom-width: 2px; border-left-width: 2px; width: 252px; border-top-left-radius: 15px; border-top-right-radius: 15px; border-bottom-right-radius: 15px; border-bottom-left-radius: 15px; height: 163px; padding-top: 8px; padding-right: 8px; padding-bottom: 8px; padding-left: 8px;">
+                <ui:Button text="Level Three" parse-escape-sequences="true" display-tooltip-when-elided="true" name="level-start" class="level-select-button" />
+            </ui:VisualElement>
+            <ui:VisualElement name="level-four-container" class="level-container" style="align-items: center; justify-content: center; background-color: rgb(71, 197, 202); border-left-color: rgb(0, 95, 99); border-right-color: rgb(0, 95, 99); border-top-color: rgb(0, 95, 99); border-bottom-color: rgb(0, 95, 99); border-top-width: 2px; border-right-width: 2px; border-bottom-width: 2px; border-left-width: 2px; width: 252px; border-top-left-radius: 15px; border-top-right-radius: 15px; border-bottom-right-radius: 15px; border-bottom-left-radius: 15px; height: 163px; padding-top: 8px; padding-right: 8px; padding-bottom: 8px; padding-left: 8px;">
+                <ui:Button text="Level Four" parse-escape-sequences="true" display-tooltip-when-elided="true" name="level-start" class="level-select-button" />
             </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>

@@ -11,6 +11,7 @@ public class LevelSelectController : MonoBehaviour
     [SerializeField] private int levelOneID;
     [SerializeField] private int levelTwoID;
     [SerializeField] private int levelThreeID;
+    [SerializeField] private int levelFourID;
     [SerializeField] private int tutorialLevelID;
 
     [Header("Scene Transition Values")]
@@ -27,6 +28,7 @@ public class LevelSelectController : MonoBehaviour
         root.Query<VisualElement>("level-one-container").Children<Button>("level-start").First().clicked += buttonOne;
         root.Query<VisualElement>("level-two-container").Children<Button>("level-start").First().clicked += buttonTwo;
         root.Query<VisualElement>("level-three-container").Children<Button>("level-start").First().clicked += buttonThree;
+        root.Query<VisualElement>("level-four-container").Children<Button>("level-start").First().clicked += buttonFour;
         root.Query<VisualElement>("tutorial-container").Children<Button>("level-start").First().clicked += tutorialButton;
     }
     /*
@@ -44,6 +46,10 @@ public class LevelSelectController : MonoBehaviour
     private void buttonThree() 
     {
         GameManager.Instance.changeScene(levelThreeID, sceneTransitionTime, sceneWaitTime);
+    }
+    private void buttonFour()
+    {
+        GameManager.Instance.changeScene(levelFourID, sceneTransitionTime, sceneWaitTime);
     }
     private void tutorialButton()
     {

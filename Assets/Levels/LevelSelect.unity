@@ -247,7 +247,8 @@ MonoBehaviour:
   levelOneID: 2
   levelTwoID: 3
   levelThreeID: 4
-  tutorialLevelID: 5
+  levelFourID: 5
+  tutorialLevelID: 6
   sceneTransitionTime: 1
   sceneWaitTime: 2
 --- !u!1 &1269697351
