@@ -7,10 +7,23 @@ public class ragdoll_controller : MonoBehaviour
     [SerializeField] float ragdollPushForce;        // Force applied to the ragdoll upon impact
     [SerializeField] float upwardsRicochetVelocity; // Vertical velocity given to the ball after hitting the ragdoll
 
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip collisionClip;
+    [SerializeField] AudioClip[] gruntSounds; // Array of different grunt sounds
     bool ragdoll_hit = false;   // Whether or not the ragdoll has been struck
 
     // Method called by the limbs of the ragdoll when a collision is detected. 
     // Passes the collision information to get the info about the ball, and the rigidbody of the limb struck
+    
+
+    void Start()
+    {
+        if (audioSource == null)
+            audioSource = GetComponent<AudioSource>();  
+
+        if (collisionClip != null)
+            audioSource.clip = collisionClip; 
+    }
     public void DetectCollision(Collision col, Rigidbody limb_rb)
     {
         //If they haven't yet been hit...
@@ -34,6 +47,19 @@ public class ragdoll_controller : MonoBehaviour
             SphereCollider ballSpCol = col.gameObject.GetComponent<SphereCollider>();   
             ballSpCol.isTrigger = true; 
             StartCoroutine(solidifyCollider(ballSpCol));  
+            PlayCollisionAndGruntSounds();
+        }
+    }
+
+    void PlayCollisionAndGruntSounds()
+    {
+        if (collisionClip != null)
+            audioSource.PlayOneShot(collisionClip); // Play collision sound first
+
+        if (gruntSounds.Length > 0) // Ensure there are grunt sounds available
+        {
+            int randomIndex = Random.Range(0, gruntSounds.Length);
+            audioSource.PlayOneShot(gruntSounds[randomIndex]); // Play a random grunt sound
         }
     }
 
