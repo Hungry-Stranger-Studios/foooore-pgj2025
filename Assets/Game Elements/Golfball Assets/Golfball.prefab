@@ -149,7 +149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxSwingForce: 35
-  chargeRate: 15
+  chargeRate: 22
   startColor: {r: 1, g: 1, b: 1, a: 0.5176471}
   midColor: {r: 0, g: 1, b: 0, a: 0.5176471}
   maxForceColor: {r: 1, g: 0, b: 0, a: 0.5176471}

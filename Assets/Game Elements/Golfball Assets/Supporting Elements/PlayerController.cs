@@ -207,7 +207,8 @@ public class PlayerController : MonoBehaviour
             _dontLoadNext = true;
             isGrounded = true;
             audioSource.PlayOneShot(awwClip);
-            StartCoroutine(ReloadSceneWithDelay(awwClip.length));
+            GameManager.Instance.reloadScene();
+            //StartCoroutine(ReloadSceneWithDelay(awwClip.length));
         }
         if (collision.gameObject.CompareTag("Ragdoll"))
         {
@@ -232,7 +233,6 @@ public class PlayerController : MonoBehaviour
 
     private void playerQuit()
     {
-        Debug.Log("Hi");
         _dontLoadNext = true;
         Debug.Log(_dontLoadNext);
     }
