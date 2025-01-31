@@ -15,7 +15,7 @@
                     <ui:Label tabindex="-1" text="STEP two: Fly the ball" parse-escape-sequences="true" display-tooltip-when-elided="true" name="step-title-label" class="step-title-label" />
                 </ui:VisualElement>
                 <ui:VisualElement name="step-text" class="step-text">
-                    <ui:Label tabindex="-1" text="While flying through the air, use your arrow keys to guide the ball towards your target" parse-escape-sequences="true" display-tooltip-when-elided="true" name="step-text-label" class="step-text-label" />
+                    <ui:Label tabindex="-1" text="While flying through the air, use your arrow or WASD keys to guide the ball towards your target" parse-escape-sequences="true" display-tooltip-when-elided="true" name="step-text-label" class="step-text-label" />
                 </ui:VisualElement>
             </ui:VisualElement>
             <ui:VisualElement name="step-container" class="step-container">
