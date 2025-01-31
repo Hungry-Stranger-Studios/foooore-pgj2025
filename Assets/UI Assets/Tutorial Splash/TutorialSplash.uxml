@@ -1,7 +1,7 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI%20Assets/Tutorial%20Splash/TutorialSplash.uss?fileID=7433441132597879392&amp;guid=726edea7aaa703142962898213934d64&amp;type=3#TutorialSplash" />
     <ui:VisualElement name="panel" class="panel">
-        <ui:VisualElement name="tutorial-container" class="tutorial-container" style="flex-grow: 1; width: 50%;">
+        <ui:VisualElement name="tutorial-container" class="tutorial-container" style="flex-grow: 1;">
             <ui:VisualElement name="step-container" class="step-container">
                 <ui:VisualElement name="step-title" class="step-title">
                     <ui:Label tabindex="-1" text="STEP ONE: SHOOT THE BALL" parse-escape-sequences="true" display-tooltip-when-elided="true" name="step-title-label" class="step-title-label" />

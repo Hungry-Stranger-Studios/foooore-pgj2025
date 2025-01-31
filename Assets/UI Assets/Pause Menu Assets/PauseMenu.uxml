@@ -1,12 +1,11 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI%20Assets/Pause%20Menu%20Assets/PauseStyling.uss?fileID=7433441132597879392&amp;guid=a606c20a202f0e4478ff13c4aafc4db7&amp;type=3#PauseStyling" />
-    <Style src="project://database/Assets/UI%20Assets/OveralUSS.uss?fileID=7433441132597879392&amp;guid=c43f85713db967b459887ffe056d60d0&amp;type=3#OveralUSS" />
     <ui:VisualElement name="GameView" style="flex-grow: 1; width: 100%; height: 100%; background-color: rgba(102, 199, 244, 0.35);">
-        <ui:VisualElement name="ButtonHolder" style="height: 50%; width: 50%; position: absolute; top: 25%; padding-top: 2%; padding-right: 2%; padding-bottom: 2%; padding-left: 2%; align-self: center; align-items: center; justify-content: center;">
-            <ui:Button text="Continue" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ContinueButton" class="pauseButton pauseText game-text" />
-            <ui:Button text="Retry" parse-escape-sequences="true" display-tooltip-when-elided="true" enable-rich-text="true" name="RetryButton" class="pauseButton pauseText game-text" />
-            <ui:Button text="Quit" parse-escape-sequences="true" display-tooltip-when-elided="true" enable-rich-text="true" name="QuitButton" class="pauseButton pauseText game-text" />
+        <ui:VisualElement name="ButtonHolder" class="pauseText" style="height: 50%; width: 50%; position: absolute; top: 25%; padding-top: 2%; padding-right: 2%; padding-bottom: 2%; padding-left: 2%; align-self: center; align-items: center; justify-content: center;">
+            <ui:Button text="Continue" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ContinueButton" class="pauseButton pauseText" />
+            <ui:Button text="Retry" parse-escape-sequences="true" display-tooltip-when-elided="true" enable-rich-text="true" name="RetryButton" class="pauseButton pauseText" />
+            <ui:Button text="Quit" parse-escape-sequences="true" display-tooltip-when-elided="true" enable-rich-text="true" name="QuitButton" class="pauseButton pauseText" />
         </ui:VisualElement>
-        <ui:Label tabindex="-1" text="PAUSED" parse-escape-sequences="true" display-tooltip-when-elided="true" name="PauseTitle" class="game-text" style="top: 0; position: relative; align-self: center; align-items: center; font-size: 36px;" />
+        <ui:Label tabindex="-1" text="PAUSED" parse-escape-sequences="true" display-tooltip-when-elided="true" name="PauseTitle" style="top: 0; position: relative; align-self: center; align-items: center; font-size: 36px; color: rgb(22, 96, 136); -unity-font: url(&quot;project://database/Assets/Fonts/lumierepolis-font/Lumierepolis-Yqvn8.ttf?fileID=12800000&amp;guid=e65da2d9dd7f6e745b668a7b9a836954&amp;type=3#Lumierepolis-Yqvn8&quot;); -unity-font-definition: initial; -unity-font-style: bold; -unity-text-outline-width: 1px; -unity-text-outline-color: rgb(0, 0, 0);" />
     </ui:VisualElement>
 </ui:UXML>
