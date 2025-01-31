@@ -38,6 +38,7 @@ public class PlayerController : MonoBehaviour
     public bool canHit = true;
     private bool movementDisabled = false;
     private bool _dontLoadNext = false;
+    private bool invincible = false;
 
     [SerializeField] AudioSource audioSource;
     [SerializeField] AudioClip swingClip;
@@ -200,19 +201,25 @@ public class PlayerController : MonoBehaviour
     private void OnCollisionEnter(Collision collision) {
         // Check if the ball collides with the ground layer
         if (collision.gameObject.CompareTag("Ground"))
-        {
-            Debug.Log(_dontLoadNext);
-            if (_dontLoadNext)
-                return;
-            _dontLoadNext = true;
-            isGrounded = true;
-            audioSource.PlayOneShot(awwClip);
-            StartCoroutine(ReloadSceneWithDelay(awwClip.length));
+        { 
+            if (!invincible)
+            {
+                Debug.Log(_dontLoadNext);
+                if (_dontLoadNext)
+                    return;
+                _dontLoadNext = true;
+                isGrounded = true;
+                audioSource.PlayOneShot(awwClip);
+                StartCoroutine(ReloadSceneWithDelay(awwClip.length));
+            }
         }
-        if (collision.gameObject.CompareTag("Ragdoll"))
+
+        if (collision.transform.root.CompareTag("Ragdoll"))
         {
+            invincible = true;
+            StartCoroutine(IFrameStall());
             canHit = true;
-            Debug.Log("hit ragdoll");
+            //Debug.Log("hit ragdoll");
         }
     }
 
@@ -230,9 +237,14 @@ public class PlayerController : MonoBehaviour
         GameManager.Instance.reloadScene();
     }
 
+    private IEnumerator IFrameStall()
+    {
+        yield return new WaitForSeconds(1f);
+        invincible = false;
+    }
+
     private void playerQuit()
     {
-        Debug.Log("Hi");
         _dontLoadNext = true;
         Debug.Log(_dontLoadNext);
     }

@@ -33,7 +33,6 @@ public class ragdoll_controller : MonoBehaviour
             Vector3 hitVel = col.rigidbody.velocity;                                // Find the velocity of the ball
             GetComponent<rd_anim_control>().disableAnimator();                      //Turn off animations to allow for ragdoll
             Rigidbody[] child_rigidbodies = GetComponentsInChildren<Rigidbody>();   // Get all the rigidbodies of the limbs such that each can have a force applied to it
-
             foreach (Rigidbody child in child_rigidbodies)
             {
                 child.useGravity = true;                                                    // Turn on gravity (its off so they don't accelerate while animated)
@@ -67,6 +66,6 @@ public class ragdoll_controller : MonoBehaviour
     {
         yield return new WaitForSeconds(0.35f);  
         ball.isTrigger = false;
-        Debug.Log("Solidified Collider");
+        //Debug.Log("Solidified Collider");
     }
 }
