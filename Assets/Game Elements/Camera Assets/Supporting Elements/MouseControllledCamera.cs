@@ -17,7 +17,7 @@ public class MouseControlledCamera : MonoBehaviour
 
     private bool cameraEnabled = true;
 
-    void Awake()
+    void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
         ball = GameObject.Find("Golfball").transform;
@@ -70,13 +70,13 @@ public class MouseControlledCamera : MonoBehaviour
         transform.LookAt(pivotPoint);
     }
 
-    public void pauseCamera()
+    private void pauseCamera()
     {
         cameraEnabled = false;
         Cursor.lockState = CursorLockMode.None;
     }
 
-    public void unpauseCamera()
+    private void unpauseCamera()
     {
         cameraEnabled = true;
         Cursor.lockState = CursorLockMode.Locked;

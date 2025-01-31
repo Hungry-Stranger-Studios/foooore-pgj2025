@@ -72,7 +72,7 @@ public class GameManager : MonoBehaviour
 
     public void reloadScene()
     {
-        sceneController?.ReloadScene(0.2f, 1.0f);
+        sceneController?.ReloadScene(0.5f, 1.0f);
     }
 
 }
