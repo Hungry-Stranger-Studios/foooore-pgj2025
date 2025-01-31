@@ -2,16 +2,27 @@ VisualElement {
 }
 
 .titleButton {
-    background-color: rgb(193, 202, 214);
+    background-color: rgb(102, 199, 244);
     align-self: center;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
     border-bottom-left-radius: 15px;
+    border-top-width: 3px;
+    border-right-width: 3px;
+    border-bottom-width: 3px;
+    border-left-width: 3px;
+    border-left-color: rgb(22, 96, 136);
+    border-right-color: rgb(22, 96, 136);
+    border-top-color: rgb(22, 96, 136);
+    border-bottom-color: rgb(22, 96, 136);
 }
 
 .titleText {
     font-size: 36px;
+    -unity-font-style: normal;
+    -unity-font: url("project://database/Assets/Fonts/lumierepolis-font/LumierepolisBold-rv5E9.ttf?fileID=12800000&guid=94fd79c4f0c06b24e9f2ac3510a1f829&type=3#LumierepolisBold-rv5E9");
+    -unity-font-definition: initial;
 }
 
 .titleButton:hover {

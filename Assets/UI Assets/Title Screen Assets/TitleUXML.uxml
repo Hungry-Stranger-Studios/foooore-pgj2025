@@ -1,10 +1,11 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI%20Assets/Title%20Screen%20Assets/TitleUSS.uss?fileID=7433441132597879392&amp;guid=8c72a86e9fb16e848b8f42531e01d81d&amp;type=3#TitleUSS" />
     <Style src="project://database/Assets/UI%20Assets/OveralUSS.uss?fileID=7433441132597879392&amp;guid=c43f85713db967b459887ffe056d60d0&amp;type=3#OveralUSS" />
-    <ui:VisualElement style="flex-grow: 1; background-color: rgb(102, 199, 244);">
+    <Style src="project://database/Assets/UI%20Assets/Tutorial%20Splash/TutorialSplash.uss?fileID=7433441132597879392&amp;guid=726edea7aaa703142962898213934d64&amp;type=3#TutorialSplash" />
+    <ui:VisualElement style="flex-grow: 1; background-color: rgb(22, 96, 136);">
         <ui:VisualElement name="Title" style="flex-grow: 1; align-self: stretch; align-items: stretch; margin-top: 10px; margin-right: 10px; margin-bottom: 10px; margin-left: 10px; padding-top: 25px; padding-right: 25px; padding-bottom: 25px; padding-left: 25px;">
             <ui:VisualElement name="TitleImage" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/UI%20Assets/Title%20Screen%20Assets/FORE1.png?fileID=2800000&amp;guid=586e4a06e02c68142831dc0cc01b7843&amp;type=3#FORE1&quot;); align-items: auto; justify-content: center; -unity-background-scale-mode: scale-to-fit;" />
         </ui:VisualElement>
-        <ui:Button text="Start Game" parse-escape-sequences="true" display-tooltip-when-elided="true" name="StartButton" class="titleButton titleText game-text" />
+        <ui:Button text="Start Game" parse-escape-sequences="true" display-tooltip-when-elided="true" name="StartButton" class="titleButton titleText" />
     </ui:VisualElement>
 </ui:UXML>

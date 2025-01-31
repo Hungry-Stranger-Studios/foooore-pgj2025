@@ -159,6 +159,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Speed Lines Emitter
       objectReference: {fileID: 0}
+    - target: {fileID: 756742341377840109, guid: 01b00fbce33751d49835806277c55d4f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5584499842066830952, guid: 01b00fbce33751d49835806277c55d4f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
