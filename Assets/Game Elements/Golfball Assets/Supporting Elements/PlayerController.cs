@@ -39,10 +39,19 @@ public class PlayerController : MonoBehaviour
     private bool movementDisabled = false;
     private bool _dontLoadNext = false;
 
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip swingClip;
+    [SerializeField] AudioClip awwClip;
+
 
     void Start()
     {
-        
+        if (audioSource == null)
+            audioSource = GetComponent<AudioSource>();  
+
+        if (swingClip != null)
+            audioSource.clip = swingClip; 
+
         rb = GetComponent<Rigidbody>();
 
         playerCamera = GameObject.Find("Main Camera").GetComponent<Camera>();   // Dynamically finds the camera in the scene
@@ -183,6 +192,7 @@ public class PlayerController : MonoBehaviour
 
             rb.velocity = UnityEngine.Vector3.zero;
             rb.AddForce(combinedForce, ForceMode.Impulse);
+            audioSource.PlayOneShot(swingClip);
         }
         ballRenderer.material.color = startColor;
         canHit = false;
@@ -195,7 +205,8 @@ public class PlayerController : MonoBehaviour
             if (_dontLoadNext)
                 return;
             isGrounded = true;
-            GameManager.Instance.reloadScene();
+            audioSource.PlayOneShot(awwClip);
+            StartCoroutine(ReloadSceneWithDelay(awwClip.length));
         }
         if (collision.gameObject.CompareTag("Ragdoll"))
         {
@@ -210,6 +221,12 @@ public class PlayerController : MonoBehaviour
         {
             isGrounded = false;
         }
+    }
+
+    private IEnumerator ReloadSceneWithDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        GameManager.Instance.reloadScene();
     }
 
     private void playerQuit()
